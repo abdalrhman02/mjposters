@@ -16,6 +16,7 @@ import './Styles/home/home.css';
 
 // Components Styles
 import './Styles/Components-Styles/Header/header.css';
+import './Styles/Components-Styles/Footer/footer.css';
 
 
 const router = createBrowserRouter([

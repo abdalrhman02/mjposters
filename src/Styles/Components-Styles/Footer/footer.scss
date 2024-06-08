@@ -1,0 +1,53 @@
+
+
+footer {
+    background-color: var(--black);
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 50px;
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        .links {
+            
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 1.3em;
+
+                a {
+                    color: #FFF;
+                }
+            }
+        }
+
+        .logo {
+
+            img {
+                width: 70px
+            }
+        }
+    }
+
+    .copyright {
+        padding: 6px 50px;
+        background-color: var(--dark-purple);
+
+        p {
+            color: #FFF;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+}
