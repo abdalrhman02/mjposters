@@ -1,0 +1,84 @@
+
+.home {
+
+    .intro {
+        position: relative;
+        background: linear-gradient(45deg, black, var(--black), var(--black));
+        height: 32em;
+        padding: 0 110px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &::after  {
+            content: '';
+            width: 30%;
+            height: 100%;
+            background: linear-gradient(60deg, var(--dark-purple), var(--dark-purple) ,var(--purple));
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .text {
+            color: #FFF;
+            .website-name {
+
+            }
+
+            h1 {
+                font-size: 60px;
+                line-height: 1.3em;
+            }
+
+            .btn-socials {
+                display: flex;
+                align-items: center;
+                gap: 0.8em;
+                margin-top: 25px;
+
+                a {
+
+                    button {
+                        width: 8em;
+                        font-size: 17px;
+                    }
+
+                    img {
+                        width: 23px
+                    }
+                }
+            }
+        }
+
+        .images {
+            z-index: 1;
+            margin-left: 20px;
+
+            img {
+                width: 250px;
+                position: relative;
+                
+                &:first-child {
+                    transform: rotate(5deg) translate(-22px, 15px);
+                }
+
+                &:nth-child(2) {
+                    margin: 0px -60px;
+                    z-index: 3;
+                    transform: translateY(-20px);
+                    width: 260px
+                }
+
+                &:last-child {
+                    transform: rotate(-5deg) translate(22px, 15px);
+                }
+            }
+        }
+    }
+
+    .top-sales {
+        padding: 60px 0
+    }
+}

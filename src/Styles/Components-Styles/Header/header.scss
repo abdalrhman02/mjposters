@@ -1,0 +1,68 @@
+
+header {
+    padding: 15px 70px;
+
+    .logo-shipping {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+
+        .shipping {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .ship-icon {
+                width: 45px;
+            }
+
+            p {
+                
+            }   
+        }
+
+        .logo {
+            .logo-img {
+                width: 65px
+            }
+        }
+    }
+
+    .links-user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 1.8em;
+
+            a {
+                color: #000;
+
+                &:first-child {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #fff;
+                    padding: 8px 0;
+                }
+
+                li {
+                    text-align: center;
+                }
+            }
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            img {
+                width: 30px
+            }
+        }
+    }
+}

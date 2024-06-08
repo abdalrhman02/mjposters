@@ -1,0 +1,50 @@
+header {
+  padding: 15px 70px;
+}
+header .logo-shipping {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+header .logo-shipping .shipping {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+header .logo-shipping .shipping .ship-icon {
+  width: 45px;
+}
+header .logo-shipping .logo .logo-img {
+  width: 65px;
+}
+header .links-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .links-user .links {
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+}
+header .links-user .links a {
+  color: #000;
+}
+header .links-user .links a:first-child {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 8px 0;
+}
+header .links-user .links a li {
+  text-align: center;
+}
+header .links-user .user {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+header .links-user .user img {
+  width: 30px;
+}/*# sourceMappingURL=header.css.map */

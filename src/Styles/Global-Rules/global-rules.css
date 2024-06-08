@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Almarai";
+}
+
+:root {
+  --purple: #8A00DE;
+  --dark-purple: #553870;
+  --yellow: #F1A641;
+  --black: #1E1E1E ;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: 0 140px;
+}
+
+.btn {
+  background-color: var(--purple);
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 600;
+  width: 7em;
+  padding: 6px 0;
+  border-radius: 7px;
+  border: none;
+}
+
+.title {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  left: -50%;
+  transform: translateX(50%);
+}
+.title h2 {
+  font-size: 28px;
+}
+.title .title-line {
+  width: 50%;
+  height: 4px;
+  background-color: var(--yellow);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 3px);
+}
+
+.disNone {
+  display: none;
+}
+
+.disBlock {
+  display: block;
+}
+
+.disFlex {
+  display: flex;
+}/*# sourceMappingURL=global-rules.css.map */
