@@ -1,0 +1,82 @@
+.profilePage .container {
+  padding: 4em 0;
+}
+.profilePage .container .account-settings .pages-bar {
+  display: flex;
+  gap: 1em;
+  border-bottom: 1px solid var(--black);
+}
+.profilePage .container .account-settings .pages-bar a {
+  color: #fff;
+  background-color: var(--purple);
+  width: 5em;
+  height: 2.3em;
+  position: relative;
+  border: 1px solid var(--black);
+  border-bottom: 0;
+}
+.profilePage .container .account-settings .pages-bar a p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.profilePage .container .account-settings .account {
+  padding: 2em 0;
+}
+.profilePage .container .account-settings .account .profile-details {
+  display: flex;
+}
+.profilePage .container .account-settings .account .profile-details .image-profile {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.profilePage .container .account-settings .account .profile-details .image-profile img {
+  width: 10em;
+  border-radius: 50%;
+}
+.profilePage .container .account-settings .account .profile-details .profile-info .name {
+  font-size: 21px;
+}
+.profilePage .container .account-settings .account .profile-details .profile-info .email {
+  margin: 5px 0 7px;
+}
+.profilePage .container .account-settings .account .purchases, .profilePage .container .account-settings .account .favorite {
+  padding: 3em 0;
+}
+.profilePage .container .account-settings .account .purchases .purchases-list, .profilePage .container .account-settings .account .purchases .favorite-list, .profilePage .container .account-settings .account .favorite .purchases-list, .profilePage .container .account-settings .account .favorite .favorite-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin: 1em 0;
+  padding: 2em 0;
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+}
+.profilePage .container .account-settings .account .purchases .purchases-list img, .profilePage .container .account-settings .account .purchases .favorite-list img, .profilePage .container .account-settings .account .favorite .purchases-list img, .profilePage .container .account-settings .account .favorite .favorite-list img {
+  width: 10em;
+}
+.profilePage .container .account-settings .account .message h2 {
+  font-size: 27px;
+}
+.profilePage .container .account-settings .account .message p {
+  font-size: 17px;
+  max-width: 400px;
+  line-height: 1.4em;
+}
+.profilePage .container .account-settings .account .message h3 {
+  margin-top: 1em;
+  font-size: 21px;
+}
+.profilePage .container .account-settings .account .message form {
+  display: flex;
+  flex-direction: column;
+}
+.profilePage .container .account-settings .account .message form [type=text] {
+  height: 10em;
+  width: 50%;
+  background-color: #EFEFEF;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}/*# sourceMappingURL=profile-page.css.map */

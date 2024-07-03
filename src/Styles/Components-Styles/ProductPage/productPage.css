@@ -1,0 +1,44 @@
+.productPage {
+  padding: 4em 0;
+}
+.productPage .container .product-info {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding-bottom: 5em;
+  border-bottom: 2px solid var(--black);
+}
+.productPage .container .product-info .poster-image p {
+  margin-bottom: 8px;
+}
+.productPage .container .product-info .poster-image img {
+  width: 25em;
+  border: 15px solid black;
+}
+.productPage .container .product-info .poster-info {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 25px;
+}
+.productPage .container .product-info .poster-info .poster-name {
+  font-size: 30px;
+  font-weight: 900;
+}
+.productPage .container .product-info .poster-info .price {
+  margin: 12px 0;
+  font-size: 17px;
+}
+.productPage .container .product-info .poster-info .price b {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--purple);
+}
+.productPage .container .product-info .poster-info .buy {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 70px;
+}
+.productPage .container .product-info .poster-info .buy i {
+  font-size: 25px;
+}/*# sourceMappingURL=productPage.css.map */

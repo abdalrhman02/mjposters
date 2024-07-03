@@ -1,0 +1,18 @@
+.customers {
+
+    .container {
+        padding: 4em 0;
+    
+        .photos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4em;
+
+            img {
+                width: 18em
+            }
+        }
+    }
+}

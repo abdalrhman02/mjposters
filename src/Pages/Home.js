@@ -14,7 +14,7 @@ function Home() {
                     <h1>زين غرفتك <br></br> و ابرز اهتماماتك <br></br> مع بوستراتنا المميزة</h1>
                     
                     <div className='btn-socials'>
-                        <a href="#"><button className='btn'>تسوق الان</button></a>
+                        <a href="Store"><button className='btn'>تسوق الان</button></a>
                         <a href="#"><img src={require('../Images/Icons/whatsapp.png')} /></a>
                         <a href="https://www.instagram.com/mjposters/"><img src={require('../Images/Icons/instagram.png')} /></a>
                     </div>

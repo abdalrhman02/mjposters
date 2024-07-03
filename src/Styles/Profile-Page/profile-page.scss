@@ -1,0 +1,125 @@
+.profilePage{
+
+    .container {
+        padding: 4em 0;
+
+        .account-settings {
+
+            .pages-bar {
+                display: flex;
+                gap: 1em;
+                border-bottom: 1px solid var(--black);
+            
+                a {
+                    color: #fff;
+                    background-color: var(--purple);
+                    width: 5em;
+                    height: 2.3em;
+                    position: relative;
+                    border: 1px solid var(--black);
+                    border-bottom: 0;
+
+                    p {
+                        position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+            .account {
+                padding: 2em 0;
+
+                .profile-details {
+                    display: flex;
+
+                    .image-profile {
+                        width: fit-content;
+                        img {
+                            width: 10em;
+                            border-radius: 50%;
+                        }
+                    }
+
+                    .profile-info {
+
+                        .name {
+                            font-size: 21px
+                        }
+
+                        .email {
+                            margin: 5px 0 7px
+                        }
+
+                        p {
+
+                        }
+                    }
+                }
+
+                .purchases, .favorite {
+                    padding: 3em 0;
+
+                    h3 {
+
+                    }
+
+                    p {
+
+                    }
+
+                    .purchases-list, .favorite-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 1.5em;
+                        margin: 1em 0;
+                        padding: 2em 0;
+                        border-top: 1px solid var(--black);
+                        border-bottom: 1px solid var(--black);
+
+                        img {
+                            width: 10em
+                        }
+                    }
+                }
+
+                .message {
+
+                    h2 {
+                        font-size: 27px
+                    }
+
+                    p {
+                        font-size: 17px;
+                        max-width: 400px;
+                        line-height: 1.4em;
+                    }
+
+                    h3 {
+                        margin-top: 1em;
+                        font-size: 21px;
+                    }
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        
+                        [type='text'] {
+                            height: 10em;
+                            width: 50%;
+                            background-color: #EFEFEF;
+                            border: 2px solid black;
+                            border-radius: 5px;
+                            margin-bottom: 8px;
+                        }
+
+                        .btn {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

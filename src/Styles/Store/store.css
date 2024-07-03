@@ -1,0 +1,48 @@
+.store-allSections .container {
+  padding: 5em 0;
+  margin: 0 250px;
+  display: flex;
+  justify-content: center;
+  gap: 8em;
+}
+.store-allSections .container .sections {
+  margin-top: 100px;
+}
+.store-allSections .container .sections ul li {
+  font-size: 17px;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+.store-allSections .container .gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 60em;
+}
+.store-allSections .container .gallery-container h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+.store-allSections .container .gallery-container p {
+  margin-bottom: 25px;
+  font-size: 17px;
+}
+.store-allSections .container .gallery-container .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.7em;
+}
+.store-allSections .container .gallery-container .gallery img {
+  width: 17em;
+  border: 8px solid black;
+  box-shadow: 4px 4px 7px 0 black;
+}
+.store-allSections .container .gallery-container .numbers {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
+  margin-top: 30px;
+  font-size: 18px;
+}/*# sourceMappingURL=store.css.map */

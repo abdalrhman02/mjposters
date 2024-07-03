@@ -5,7 +5,7 @@ function Header() {
         <header>
             <div className="logo-shipping">
                 <div className="logo">
-                    <img className='logo-img' src={require('../Images/Logo/logo.png')} />
+                    <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
                 </div>
 
                 <div className="shipping">
@@ -16,7 +16,7 @@ function Header() {
 
             <div className="links-user">
                 <ul className='links'>
-                    <a href="#" className='btn'><li>جميع الاقسام</li></a>
+                    <a href="Store" className='btn'><li>جميع الاقسام</li></a>
                     <a href="#"><li>سيارات</li></a>
                     <a href="#"><li>رياضة</li></a>
                     <a href="#"><li>مسلسلات</li></a>
@@ -25,10 +25,6 @@ function Header() {
                 </ul>
 
                 <div className='user'>
-                    <a href="#" className='favorite'>
-                        <img src={require("../Images/Icons/heart-icon.png")} />
-                    </a>
-
                     <a href="#" className='cart'>
                         <img src={require("../Images/Icons/cart-icon.png")} />
                     </a>

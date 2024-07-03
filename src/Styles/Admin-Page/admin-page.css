@@ -1,0 +1,116 @@
+.admin-page .container {
+  padding: 3em 0;
+}
+.admin-page .container .posters-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-page .container .posters-list select {
+  margin-bottom: 1.5em;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.admin-page .container .posters-list .list {
+  display: flex;
+  gap: 1.5em;
+}
+.admin-page .container .posters-list .list img {
+  width: 13em;
+  border: 10px solid black;
+  box-shadow: 4px 4px 7px 0 black;
+}
+.admin-page .container .add-poster {
+  border: 3px solid black;
+  margin-top: 3em;
+  padding: 2em;
+}
+.admin-page .container .add-poster h2 {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+.admin-page .container .add-poster .poster-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.admin-page .container .add-poster .poster-info .name-price-section {
+  display: flex;
+  align-items: center;
+  gap: 4em;
+}
+.admin-page .container .add-poster .poster-info .name-price-section div {
+  display: flex;
+  flex-direction: column;
+}
+.admin-page .container .add-poster .poster-info .name-price-section div label {
+  margin-bottom: 7px;
+}
+.admin-page .container .add-poster .poster-info .name-price-section div input {
+  background-color: #EFEFEF;
+  border: 1px solid black;
+  outline: none;
+  height: 2.5em;
+  width: 15em;
+  font-size: 14px;
+  padding-right: 7px;
+}
+.admin-page .container .add-poster .poster-info .description div {
+  display: flex;
+  flex-direction: column;
+}
+.admin-page .container .add-poster .poster-info .description div label {
+  margin-bottom: 7px;
+}
+.admin-page .container .add-poster .poster-info .description div input {
+  background-color: #EFEFEF;
+  border: 1px solid black;
+  outline: none;
+  font-size: 15px;
+  height: 9em;
+  width: 50%;
+}
+.admin-page .container .add-poster .poster-info .image .dropArea {
+  position: relative;
+  display: block;
+  height: 20em;
+  width: 15em;
+  background-color: #EFEFEF;
+  border: 1px solid black;
+  outline: none;
+  margin-top: 10px;
+}
+.admin-page .container .add-poster .poster-info .image .dropArea input {
+  height: 100%;
+  position: absolute;
+  z-index: 5;
+}
+.admin-page .container .add-poster .poster-info .image .dropArea .imgView {
+  background-size: cover;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+.admin-page .container .add-poster .poster-info .image .dropArea .imgView i {
+  font-size: 50px;
+  color: #fff;
+  background-color: var(--purple);
+  padding: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.admin-page .container .add-poster .poster-info .btn {
+  width: 9em;
+  cursor: pointer;
+}
+.admin-page footer {
+  margin-top: 5em;
+}/*# sourceMappingURL=admin-page.css.map */

@@ -1,0 +1,13 @@
+.customers .container {
+  padding: 4em 0;
+}
+.customers .container .photos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4em;
+}
+.customers .container .photos img {
+  width: 18em;
+}/*# sourceMappingURL=customers.css.map */

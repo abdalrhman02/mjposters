@@ -1,0 +1,66 @@
+.productPage {
+    padding: 4em 0;
+    .container {
+
+        .product-info {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            padding-bottom: 5em;
+            border-bottom: 2px solid var(--black);
+
+            .poster-image {
+                
+                p {
+                    margin-bottom: 8px;
+                }
+
+                img {
+                    width: 25em;
+                    border: 15px solid black;
+                }
+            }
+
+            .poster-info {
+                height: fit-content;
+                margin-top: 25px;
+
+                .poster-name {
+                    font-size: 30px;
+                    font-weight: 900;
+                }
+
+                .price {
+                    margin: 12px 0;
+                    font-size: 17px;
+
+                    b {
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: var(--purple)
+                    }
+                }
+
+                .buy {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.7em;
+                    margin-bottom: 70px;
+
+                    i {
+                        font-size: 25px;
+                    }
+
+                    .btn {
+
+                    }
+                }
+
+                .description {
+
+                }
+            }
+        }
+
+    }
+}

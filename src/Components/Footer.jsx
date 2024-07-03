@@ -16,15 +16,14 @@ function Footer() {
                 
                 <div className="links">
                     <ul>
-                        <a href="#"><li>من نحن</li></a>
-                        <a href="#"><li>الأسئلة الشائعة</li></a>
+                        <a href="About"><li>من نحن</li></a>
                         <a href="#"><li>سياسة الترجيع</li></a>
                         <a href="#"><li> مشاركة زبائننا</li></a>
                     </ul>
                 </div>
 
                 <div className="logo">
-                    <img src={require('../Images/Logo/logo.png')} />
+                    <img src={require('../Images/Logo/logo-nobackground.png')} />
                 </div>
             </div>
 

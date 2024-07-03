@@ -33,6 +33,10 @@ ul {
   padding: 6px 0;
   border-radius: 7px;
   border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.8;
 }
 
 .center-title {
@@ -53,6 +57,11 @@ ul {
   left: 50%;
   transform: translate(-50%, 3px);
 }
+.center-title p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+}
 
 .disNone {
   display: none;
@@ -64,4 +73,115 @@ ul {
 
 .disFlex {
   display: flex;
+}
+
+.posters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4em;
+  margin: 2.5em 0 5em;
+}
+.posters .poster {
+  text-align: center;
+}
+.posters .poster img {
+  width: 230px;
+  border: 7px solid black;
+  box-shadow: 4px 4px 7px 0 black;
+}
+.posters .poster h3 {
+  margin-top: 9px;
+  font-size: 21px;
+  color: #000;
+}
+
+header {
+  padding: 15px 50px;
+}
+header .logo-shipping {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+header .logo-shipping .shipping {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+header .logo-shipping .shipping .ship-icon {
+  width: 40px;
+}
+header .logo-shipping .logo .logo-img {
+  width: 65px;
+}
+header .links-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .links-user .links {
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+}
+header .links-user .links a {
+  color: #000;
+}
+header .links-user .links a:first-child {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  padding: 8px 0;
+}
+header .links-user .links a li {
+  text-align: center;
+}
+header .links-user .user {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+header .links-user .user img {
+  width: 30px;
+}
+
+footer {
+  background-color: var(--black);
+  margin-top: 25px;
+}
+footer .footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 50px;
+}
+footer .footer-content .socials {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+footer .footer-content .socials img {
+  width: 25px;
+}
+footer .footer-content .links ul {
+  display: flex;
+  align-items: center;
+  gap: 1.3em;
+}
+footer .footer-content .links ul a {
+  color: #FFF;
+}
+footer .footer-content .logo img {
+  width: 70px;
+}
+footer .copyright {
+  padding: 6px 50px;
+  background-color: var(--dark-purple);
+}
+footer .copyright p {
+  color: #FFF;
+  text-align: center;
+  font-weight: 600;
 }/*# sourceMappingURL=global-rules.css.map */

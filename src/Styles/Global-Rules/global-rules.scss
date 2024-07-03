@@ -23,8 +23,12 @@ ul{list-style: none};
     padding: 6px 0;
     border-radius: 7px;
     border: none;
-}
+    cursor: pointer;
 
+    &:hover {
+        opacity: .8;
+    }
+}
 .center-title {
     width: fit-content;
     position: relative;
@@ -43,9 +47,161 @@ ul{list-style: none};
         left: 50%;
         transform: translate(-50%, 3px);
     }
+
+    p {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;    
+    }
 }
 
 // Classes
 .disNone{display:none};
 .disBlock{display:block};
 .disFlex{display:flex};
+
+// Any where I want to add some posters
+.posters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    margin: 2.5em 0 5em;
+
+    .poster {
+        text-align: center;
+        img {
+            width: 230px;
+            border: 7px solid black;
+            box-shadow: 4px 4px 7px 0 black;
+        }
+
+        h3 {
+            margin-top: 9px;
+            font-size: 21px;
+            color: #000;
+        }
+    }
+}
+
+// Footer and Header
+header {
+    padding: 15px 50px;
+
+    .logo-shipping {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+
+        .shipping {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            .ship-icon {
+                width: 40px;
+            }
+
+            p {
+                
+            }   
+        }
+
+        .logo {
+            .logo-img {
+                width: 65px
+            }
+        }
+    }
+
+    .links-user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .links {
+            display: flex;
+            align-items: center;
+            gap: 1.8em;
+
+            a {
+                color: #000;
+
+                &:first-child {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #fff;
+                    padding: 8px 0;
+                }
+
+                li {
+                    text-align: center;
+                }
+            }
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+
+            img {
+                width: 30px
+            }
+        }
+    }
+}
+
+footer {
+    background-color: var(--black);
+    margin-top: 25px;
+    
+    .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 50px;
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        .links {
+            
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 1.3em;
+
+                a {
+                    color: #FFF;
+                }
+            }
+        }
+
+        .logo {
+
+            img {
+                width: 70px
+            }
+        }
+    }
+
+    .copyright {
+        padding: 6px 50px;
+        background-color: var(--dark-purple);
+
+        p {
+            color: #FFF;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+}
