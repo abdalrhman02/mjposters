@@ -43,8 +43,22 @@ function ProfilePage() {
                             </div>
 
                             <div className='profile-info'>
-                                <h3 className='name'>{user.displayName}</h3>
-                                <p className='email'>{user.email}</p>
+                                {user !== null ? ( 
+                                    <h3 className='name'>
+                                        {user.displayName}
+                                    </h3>
+                                ) : (
+                                     <h3>Username Here</h3>   
+                                )}
+                                
+                                
+                                {user !== null ? ( 
+                                    <p className='email'>
+                                        {user.email}
+                                    </p>
+                                ) : (
+                                     <p>Username Here</p>   
+                                )}
                             </div>
                         </div>
 
