@@ -44,7 +44,7 @@ function ProfilePage() {
 
                             <div className='profile-info'>
                                 <h3 className='name'>احمد محسن</h3>
-                                <p className='email'>{user.displayName}</p>
+                                <p className='email'>email here</p>
                             </div>
                         </div>
 
