@@ -43,8 +43,8 @@ function ProfilePage() {
                             </div>
 
                             <div className='profile-info'>
-                                <h3 className='name'>احمد محسن</h3>
-                                <p className='email'>email here</p>
+                                <h3 className='name'>{user.displayName}</h3>
+                                <p className='email'>{user.email}</p>
                             </div>
                         </div>
 
