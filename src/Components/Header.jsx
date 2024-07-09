@@ -1,12 +1,16 @@
-
+import { useRef } from 'react';
+import CartBar from './CartBar';
 
 function Header() {
+
     return (
         <header>
             <div className="logo-shipping">
-                <div className="logo">
-                    <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
-                </div>
+                <a href="/">
+                    <div className="logo">
+                        <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
+                    </div>
+                </a>
 
                 <div className="shipping">
                     <img className='ship-icon' src={require('../Images/Icons/shipping.png')} />
@@ -25,12 +29,12 @@ function Header() {
                 </ul>
 
                 <div className='user'>
-                    <a href="#" className='cart'>
+                    <a href="Cart" className='cart'>
                         <img src={require("../Images/Icons/cart-icon.png")} />
                     </a>
 
                     <div className="profile">
-                        <a href="#"><img src={require('../Images/Icons/user-icon.png')} /></a>
+                        <a href="ProfilePage"><img src={require('../Images/Icons/user-icon.png')} /></a>
                     </div>
                 </div>
             </div>

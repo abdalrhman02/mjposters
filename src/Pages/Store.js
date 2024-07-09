@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebaseconfig';
+import { CartProvider, useCart } from '../Components/CartContext';
 
 // Components
 import Header from '../Components/Header';
@@ -51,7 +52,8 @@ function Store() {
     
 
     return(
-        <div className="store-allSections">
+        <CartProvider>
+            <div className="store-allSections">
             <Header />
 
             <div className="container">
@@ -62,15 +64,9 @@ function Store() {
                         <li>مسلسلات</li>
                         <li>انمي</li>
                         <li>العاب</li>
+                        <li>البومات</li>
                         <li>سيارات</li>
                         <li>رياضة</li>
-                        <li>طبيعة</li>
-                        <li>مدن</li>
-                        <li>تقنية</li>
-                        <li>ميمز</li>
-                        <li>مقولات</li>
-                        <li>اطفال</li>
-                        <li>اسود و ابيض</li>
                         <li>صورة خاصة</li>
                         <li>تصميم خاص</li>
                     </ul>
@@ -103,6 +99,7 @@ function Store() {
 
             <Footer />
         </div>
+        </CartProvider>
     )
 }
 

@@ -45,7 +45,7 @@
                     display: flex;
                     align-items: center;
                     gap: 0.7em;
-                    margin-bottom: 70px;
+                    margin-bottom: 40px;
 
                     i {
                         font-size: 25px;
@@ -57,7 +57,8 @@
                 }
 
                 .description {
-
+                    line-height: 1.7em;
+                    font-size: 17px;
                 }
             }
         }

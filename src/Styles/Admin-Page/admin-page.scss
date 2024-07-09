@@ -20,12 +20,60 @@
 
             .list {
                 display: flex;
-                gap: 1.5em;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.8em;
 
-                img {
-                    width: 13em;
-                    border: 10px solid black;
-                    box-shadow: 4px 4px 7px 0 black;
+                .poster {
+                    position: relative;
+                    img {
+                        width: 13em;
+                        border: 10px solid black;
+                        box-shadow: 4px 4px 7px 0 black;
+                    }
+
+                    .details {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        gap: 1em;
+                        padding-top: 10px;
+                        color: #000;
+
+                        .name {
+                            p{
+                                font-size: 18px
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            align-items: center;
+                            gap: 1em;
+                        }
+                    }
+
+                    .deleteBtn {
+                        color: #fff;
+                        background-color: red;
+                        width: 1.4em;
+                        height: 1.4em;
+                        font-size: 30px;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: 8px;
+                        right: 8px;
+
+                        &::before {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
                 }
             }
         }

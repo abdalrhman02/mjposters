@@ -2,10 +2,12 @@
 // Components
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import { CartProvider } from '../Components/CartContext';
 
 function Home() {
     return(
-        <div className="home">
+        <CartProvider>
+            <div className="home">
             <Header />
 
             <div className='intro'>
@@ -84,7 +86,7 @@ function Home() {
                         </a>
                     </div>
 
-                    <button className='btn'><a href="#">جميع الاقسام</a></button>
+                    <button className='btn'><a href="Store">جميع الاقسام</a></button>
                 </div>
             </div>
 
@@ -254,6 +256,7 @@ function Home() {
 
             <Footer />
         </div>
+        </CartProvider>
     )
 }
 

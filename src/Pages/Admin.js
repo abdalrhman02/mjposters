@@ -50,6 +50,17 @@ function AdminPage() {
     }, []);
 
 
+    const deleteProduct = async (id) => {
+        try {
+            const productDoc = doc(db, 'products', id);
+            await deleteDoc(productDoc);
+            setProductsList(prevProducts => prevProducts.filter(product => product.id !== id));
+        } catch (error) {
+            console.error("Error deleting product:", error);
+        }
+    };
+
+
     let imgView = useRef();
     let dropArea = useRef();
     let inputFile = useRef(null);
@@ -82,22 +93,31 @@ function AdminPage() {
                     <select onChange={selectChange} value={selectedValue}>
                         <option>اختر القسم</option>
                         <option value="مسلسلات">قسم المسلسلات</option>
-                        <option value="انمي">قسم انمي</option>
+                        <option value="انمي">قسم الانمي</option>
                         <option value="العاب">قسم العاب</option>
-                        <option value="سيارات">قسم سيارات</option>
-                        <option value="طبيعة">قسم طبيعة</option>
-                        <option value="رياضة">قسم رياضة</option>
-                        <option value="مدن">قسم مدن</option>
+                        <option value="سيارات">قسم السيارات</option>
+                        <option value="البومات">قسم الالبومات</option>
+                        <option value="طبيعة">قسم الطبيعة</option>
+                        <option value="رياضة">قسم الرياضة</option>
+                        <option value="مدن">قسم المدن</option>
                     </select>
 
                     <div className='list'>
                         {filteredProducts.map((product) => (
                             <Link to={`/product/${product.id}`}>
                                 <div className='poster' key={product.id}>
-                                    <p>{product.name}</p>
-                                    <p>{product.price}</p>
-                                    <p>{product.type}</p>
                                     <img src={product.imageUrl + '?alt=media'} alt={`Product ${product.id}_${product.name}`} />
+                                    <div className='details'>
+                                        <div className='name'>
+                                            <p>{product.name}</p>
+                                        </div>
+                                        <div>
+                                            <p>{product.price}</p>
+                                            <p>{product.type}</p>
+                                        </div>
+                                    </div>
+
+                                    <i class="fa-solid fa-xmark deleteBtn" onClick={() => deleteProduct(product.id)}></i>
                                 </div>
                             </Link>
                         ))}

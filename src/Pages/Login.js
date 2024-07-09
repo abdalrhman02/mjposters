@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 // Components
 import Header from '../Components/Header';
@@ -12,19 +12,23 @@ function Login() {
 
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    
+    const errorNoti = useRef();
 
     const login = async (e) => {
         e.preventDefault()
         try {
-            console.log("Done!!")
+            console.log("Login Success!!")
             const userCredential = await signInWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
+
+            window.location.href = "/";
         }
         catch(error) {
-            console.log(error.message)
+            errorNoti.current.style.display = "block"
         }
     }
     
@@ -43,13 +47,15 @@ function Login() {
                     <form onSubmit={login}>
                         <div>
                             <label htmlFor='email'>البريد الالكتروني: </label>
-                            <input type='email' id='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type='email' id='email' value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         </div>
 
                         <div>
                             <label htmlFor='password'>كلمة المرور: </label>
                             <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                         </div>
+
+                        <p className="error" ref={errorNoti}>هنالك خطأ في الايميل او كلمة المرور...</p>
 
                         <input className='btn' type='submit' value='سجل دخولك' />
                     </form>

@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 
 
+// Cart Provider
+import { CartProvider } from './Components/CartContext';
+
 // Pages
 import Home from './Pages/Home';
 import About from './Pages/About';
@@ -17,6 +20,7 @@ import Signup from './Pages/Signup';
 import AdminPage from './Pages/Admin';
 import ProductPage from './Pages/ProductPage';
 import ProfilePage from './Pages/ProfilePage';
+import Cart from './Pages/Cart';
 
 // Styles
 import './Styles/all.min.css'; // Fot FontAwesome
@@ -31,6 +35,7 @@ import './Styles/Admin-Page/admin-page.css';
 
 // Components Styles
 import './Styles/Components-Styles/ProductPage/productPage.css'
+import './Styles/Components-Styles/CartBar/cartbar.css'
 
 const router = createBrowserRouter([
   {path: "/", element: <Home/>,},
@@ -42,12 +47,15 @@ const router = createBrowserRouter([
   {path: "AdminPage", element: <AdminPage/>,},
   {path: "product/:id", element: <ProductPage/>,},
   {path: "ProfilePage", element: <ProfilePage/>,},
+  {path: "Cart", element: <Cart/>,},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );
 

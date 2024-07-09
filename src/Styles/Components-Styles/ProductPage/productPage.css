@@ -37,8 +37,12 @@
   display: flex;
   align-items: center;
   gap: 0.7em;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 .productPage .container .product-info .poster-info .buy i {
   font-size: 25px;
+}
+.productPage .container .product-info .poster-info .description {
+  line-height: 1.7em;
+  font-size: 17px;
 }/*# sourceMappingURL=productPage.css.map */
