@@ -123,4 +123,38 @@
             }
         }
     }
+
+    .loginCart {
+        height: 70vh;
+        position: relative;
+        
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+
+            h1 {
+                margin-bottom: 20px;
+                font-size: 40px;
+                text-align: center;
+            }
+    
+            .btns {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2em;
+
+                a {
+    
+                    button {
+                        font-size: 20px;
+                        width: 10em
+                    }
+                }
+            }
+        }
+    }
 }

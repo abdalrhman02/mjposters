@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../Components/CartContext';
+import { useAuth } from '../Components/AuthContext';
 
 function ProductCom({
   prName,
@@ -9,19 +10,24 @@ function ProductCom({
   prImg,
   productId,
 }) {
+  const { currentUser } = useAuth();
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
-    const product = {
-      id: productId,
-      name: prName,
-      price: prPrice,
-      type: prType,
-      description: prDescription,
-      imageUrl: prImg,
-      quantity: 1, 
-    };
-    addToCart(product);
+    if (currentUser) {
+      const product = {
+        id: productId,
+        name: prName,
+        price: prPrice,
+        type: prType,
+        description: prDescription,
+        imageUrl: prImg,
+        quantity: 1,
+      };
+      addToCart(product);
+    } else {
+      alert('يرجى تسجيل الدخول لإضافة المنتج إلى السلة.');
+    }
   };
 
   return (

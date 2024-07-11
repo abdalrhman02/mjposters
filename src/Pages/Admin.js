@@ -37,6 +37,7 @@ function AdminPage() {
 
 
         getProductsList();
+        window.location.reload()
     };
 
 
@@ -104,22 +105,27 @@ function AdminPage() {
 
                     <div className='list'>
                         {filteredProducts.map((product) => (
+                            <div className='poster' key={product.id}>
                             <Link to={`/product/${product.id}`}>
-                                <div className='poster' key={product.id}>
-                                    <img src={product.imageUrl + '?alt=media'} alt={`Product ${product.id}_${product.name}`} />
-                                    <div className='details'>
-                                        <div className='name'>
-                                            <p>{product.name}</p>
-                                        </div>
-                                        <div>
-                                            <p>{product.price}</p>
-                                            <p>{product.type}</p>
-                                        </div>
-                                    </div>
-
-                                    <i class="fa-solid fa-xmark deleteBtn" onClick={() => deleteProduct(product.id)}></i>
+                              <img src={product.imageUrl + '?alt=media'} alt={`Product ${product.id}_${product.name}`} />
+                              <div className='details'>
+                                <div className='name'>
+                                  <p>{product.name}</p>
                                 </div>
+                                <div>
+                                  <p>{product.price}</p>
+                                  <p>{product.type}</p>
+                                </div>
+                              </div>
                             </Link>
+                            <i 
+                              className="fa-solid fa-xmark deleteBtn" 
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                deleteProduct(product.id);
+                              }}
+                            ></i>
+                          </div> 
                         ))}
                     </div>
                 </div>

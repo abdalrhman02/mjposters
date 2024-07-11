@@ -6,6 +6,11 @@
         margin-bottom: 5px
     }
 
+    .empty-cart {
+        height: 65vh;
+
+    }
+
     .cart-list {
         .product-details {
             display:flex; 
@@ -67,6 +72,38 @@
             }
         }
 
+        .area {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            margin-top: 25px;
+
+            p {
+                font-size: 18px;
+            }
+
+            select {
+                font-size: 18px;
+
+                option {
+
+                }
+            }
+        }
+
+        .totalPrice {
+            margin: 25px 0;
+            p {
+                font-size: 20px;
+                b {
+                    background-color: var(--purple);
+                    color: #FFF;
+                    padding: 1px 8px;
+                    border-radius: 5px;
+                }
+            }
+        }
+
         .the-form {
             margin-top: 20px;
 
@@ -108,4 +145,37 @@
     }
 
 
+    .loginCart {
+        height: 65vh;
+        position: relative;
+        
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+
+            h1 {
+                margin-bottom: 20px;
+                font-size: 40px;
+                text-align: center;
+            }
+    
+            .btns {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2em;
+
+                a {
+    
+                    button {
+                        font-size: 20px;
+                        width: 10em
+                    }
+                }
+            }
+        }
+    }
 }

@@ -80,4 +80,30 @@
   border: 2px solid black;
   border-radius: 5px;
   margin-bottom: 8px;
+}
+.profilePage .loginCart {
+  height: 70vh;
+  position: relative;
+}
+.profilePage .loginCart .container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.profilePage .loginCart .container h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+.profilePage .loginCart .container .btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.profilePage .loginCart .container .btns a button {
+  font-size: 20px;
+  width: 10em;
 }/*# sourceMappingURL=profile-page.css.map */

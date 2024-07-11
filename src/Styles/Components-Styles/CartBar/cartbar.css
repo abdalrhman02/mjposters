@@ -4,6 +4,9 @@
 .cartbar h1 {
   margin-bottom: 5px;
 }
+.cartbar .empty-cart {
+  height: 65vh;
+}
 .cartbar .cart-list .product-details {
   display: flex;
   padding: 20px 0;
@@ -51,6 +54,30 @@
   font-size: 14px;
   border-radius: 5px;
 }
+.cartbar .cart-list .area {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 25px;
+}
+.cartbar .cart-list .area p {
+  font-size: 18px;
+}
+.cartbar .cart-list .area select {
+  font-size: 18px;
+}
+.cartbar .cart-list .totalPrice {
+  margin: 25px 0;
+}
+.cartbar .cart-list .totalPrice p {
+  font-size: 20px;
+}
+.cartbar .cart-list .totalPrice p b {
+  background-color: var(--purple);
+  color: #FFF;
+  padding: 1px 8px;
+  border-radius: 5px;
+}
 .cartbar .cart-list .the-form {
   margin-top: 20px;
 }
@@ -73,4 +100,30 @@
   margin-top: 6px;
   padding-right: 7px;
   font-size: 16px;
+}
+.cartbar .loginCart {
+  height: 65vh;
+  position: relative;
+}
+.cartbar .loginCart .container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.cartbar .loginCart .container h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+.cartbar .loginCart .container .btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.cartbar .loginCart .container .btns a button {
+  font-size: 20px;
+  width: 10em;
 }/*# sourceMappingURL=cartbar.css.map */

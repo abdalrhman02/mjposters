@@ -1,8 +1,5 @@
-import { useRef } from 'react';
-import CartBar from './CartBar';
 
 function Header() {
-
     return (
         <header>
             <div className="logo-shipping">
@@ -21,11 +18,8 @@ function Header() {
             <div className="links-user">
                 <ul className='links'>
                     <a href="Store" className='btn'><li>جميع الاقسام</li></a>
-                    <a href="#"><li>سيارات</li></a>
-                    <a href="#"><li>رياضة</li></a>
-                    <a href="#"><li>مسلسلات</li></a>
-                    <a href="#"><li>طبيعة</li></a>
-                    <a href="#"><li>اطفال</li></a>
+                    <a href="About"><li>من نحن</li></a>
+                    <a href="Customers"><li>مشاركة زبائننا</li></a>
                 </ul>
 
                 <div className='user'>

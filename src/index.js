@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 
 
-// Cart Provider
+// Context
 import { CartProvider } from './Components/CartContext';
+import { AuthProvider } from './Components/AuthContext';
 
 // Pages
 import Home from './Pages/Home';
@@ -52,10 +53,13 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Here I wrap the website with Auth and Cart Context.
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <AuthProvider> 
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

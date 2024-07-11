@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { auth } from '../firebaseconfig';
+import { useAuth } from '../Components/AuthContext';
 
 // Components
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 function ProfilePage() {
+
+    const { currentUser, logout } = useAuth();
 
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -19,85 +22,111 @@ function ProfilePage() {
 
         return () => unsubscribe();
     }, []);
+    
 
     return (
         <div className='profilePage'>
             <Header />
-            
-            <div className='container'>
-                <div className='account-settings'>
-                    <div className='pages-bar'>
-                       <a href="#">
-                        <p>الحساب</p>
-                       </a>
 
-                       {/* <a href="#">
-                        <p>الاعدادات</p>
-                       </a> */}
-                    </div>
+            {currentUser ? (
+                <>
+                <div className='container'>
+                    <div className='account-settings'>
+                        <div className='pages-bar'>
+                        <a href="#">
+                            <p>الحساب</p>
+                        </a>
 
-                    <div className='account'>
-                        <div className='profile-details'>
-                            <div className='image-profile'>
-                                <img src={require('../Images/photo.jpg')} />
-                            </div>
-
-                            <div className='profile-info'>
-                                {user !== null ? ( 
-                                    <h3 className='name'>
-                                        {user.displayName}
-                                    </h3>
-                                ) : (
-                                     <h3>Username Here</h3>   
-                                )}
-                                
-                                
-                                {user !== null ? ( 
-                                    <p className='email'>
-                                        {user.email}
-                                    </p>
-                                ) : (
-                                     <p>Username Here</p>   
-                                )}
-                            </div>
+                        {/* <a href="#">
+                            <p>الاعدادات</p>
+                        </a> */}
                         </div>
 
-                        <div className='purchases'>
-                            <h3>قائمة المشتريات</h3>
-                            <p>عدد مرات الشراء: 2</p>
+                        <div className='account'>
+                            <div className='profile-details'>
+                                <div className='image-profile'>
+                                    <img src={require('../Images/photo.jpg')} />
+                                </div>
 
-                            <div className='purchases-list'>
-                                <img src={require('../Images/Posters/p18.png')} />
-                                <img src={require('../Images/Posters/p12.png')} />
-                                <img src={require('../Images/Posters/p15.png')} />
+                                <div className='profile-info'>
+                                    {user !== null ? ( 
+                                        <h3 className='name'>
+                                            {user.displayName}
+                                        </h3>
+                                    ) : (
+                                        <h3>Username Here</h3>   
+                                    )}
+                                    
+                                    
+                                    {user !== null ? ( 
+                                        <p className='email'>
+                                            {user.email}
+                                        </p>
+                                    ) : (
+                                        <p>Username Here</p>   
+                                    )}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='favorite'>
-                            <h3>قائمة المفضلة</h3>
+                            <div className='purchases'>
+                                <h3>قائمة المشتريات</h3>
+                                <p>عدد مرات الشراء: 2</p>
 
-                            <div className='favorite-list'>
-                                <img src={require('../Images/Posters/p3.png')} />
-                                <img src={require('../Images/Posters/p2.png')} />
-                                <img src={require('../Images/Posters/p5.png')} />
+                                <div className='purchases-list'>
+                                    <img src={require('../Images/Posters/p18.png')} />
+                                    <img src={require('../Images/Posters/p12.png')} />
+                                    <img src={require('../Images/Posters/p15.png')} />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='message'>
-                            <h2>هل لديك تعليق على خدماتنا؟</h2>
-                            <p>نسعد في سماع ارائكم و اقتراحاتكم لتطوير مشروعنا و تقديم افضل ما يمكن لكم</p>
-                            <h3>اكتب تعليقك هنا</h3>
-                            <form>
-                                <input type='text' />
-                                <input type='submit' value="ارسال" className='btn' />
-                            </form>
+                            <div className='favorite'>
+                                <h3>قائمة المفضلة</h3>
+
+                                <div className='favorite-list'>
+                                    <img src={require('../Images/Posters/p3.png')} />
+                                    <img src={require('../Images/Posters/p2.png')} />
+                                    <img src={require('../Images/Posters/p5.png')} />
+                                </div>
+                            </div>
+
+                            <div className='message'>
+                                <h2>هل لديك تعليق على خدماتنا؟</h2>
+                                <p>نسعد في سماع ارائكم و اقتراحاتكم لتطوير مشروعنا و تقديم افضل ما يمكن لكم</p>
+                                <h3>اكتب تعليقك هنا</h3>
+                                <form>
+                                    <input type='text' />
+                                    <input type='submit' value="ارسال" className='btn' />
+                                </form>
+                            </div>
+
+
+                            <button className='btn' onClick={logout}>Logout</button>
                         </div>
                     </div>
                 </div>
-            </div>
+                </>
+            ) : (
+            <>
+                <div className='loginCart' >
+                <div className="container">
+                    <h1>سجل دخولك الان و احصل على البوستر الخاص بك!</h1>
+
+                    <div className="btns">
+                    <a href="Login">
+                        <button className='btn' >تسجيل الدخول</button>
+                    </a>
+                    
+                    <a href="Signup">
+                        <button className='btn' >انشاء حساب جديد</button>
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </>
+            )} 
 
             <Footer />
-        </div>
+        </div>  
     )
 }
 

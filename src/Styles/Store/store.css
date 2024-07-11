@@ -9,9 +9,10 @@
   margin-top: 100px;
 }
 .store-allSections .container .sections ul li {
-  font-size: 17px;
-  font-weight: 200;
+  font-size: 18px;
+  font-weight: 400;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 .store-allSections .container .gallery-container {
   display: flex;
@@ -22,11 +23,13 @@
 }
 .store-allSections .container .gallery-container h2 {
   font-size: 35px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
-.store-allSections .container .gallery-container p {
+.store-allSections .container .gallery-container .title-para {
   margin-bottom: 25px;
   font-size: 17px;
+  max-width: 480px;
+  line-height: 1.4em;
 }
 .store-allSections .container .gallery-container .gallery {
   display: flex;
@@ -34,10 +37,108 @@
   justify-content: center;
   gap: 1.7em;
 }
-.store-allSections .container .gallery-container .gallery img {
+.store-allSections .container .gallery-container .gallery .poster-img {
   width: 17em;
   border: 8px solid black;
   box-shadow: 4px 4px 7px 0 black;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2em;
+  margin-top: 1em;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image h2 {
+  font-size: 23px;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image form .dropArea {
+  position: relative;
+  display: block;
+  height: 20em;
+  width: 15em;
+  background-color: #EFEFEF;
+  border: 1px solid black;
+  outline: none;
+  margin-top: 10px;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image form .dropArea input {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image form .dropArea .imgView {
+  background-size: cover;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image form .dropArea .imgView i {
+  font-size: 50px;
+  color: #fff;
+  background-color: var(--purple);
+  padding: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .image button {
+  margin-top: 13px;
+  width: 8em;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .text {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  width: 50%;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .text h3 {
+  margin-bottom: 10px;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .text h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.store-allSections .container .gallery-container .gallery .special-image-poster .text p {
+  margin-bottom: 25px;
+  font-size: 18px;
+  text-align: right;
+  font-weight: 200;
+  line-height: 1.4em;
+}
+.store-allSections .container .gallery-container .gallery .special-design-poster {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.store-allSections .container .gallery-container .gallery .special-design-poster .empty-poster {
+  background-color: var(--black);
+  width: 12em;
+  height: 19em;
+  position: relative;
+}
+.store-allSections .container .gallery-container .gallery .special-design-poster .empty-poster h4 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  font-size: 35px;
+}
+.store-allSections .container .gallery-container .gallery .special-design-poster .socials img {
+  background-color: var(--purple);
+  width: 2em;
+  padding: 10px;
+  margin-right: 12px;
+  border-radius: 12px;
 }
 .store-allSections .container .gallery-container .numbers {
   display: flex;
