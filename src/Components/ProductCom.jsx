@@ -42,7 +42,7 @@ function ProductCom({
           <div className="poster-info">
             <h2 className="poster-name">{prName}</h2>
             <p className="price">
-              <b>{prPrice}₪</b> | طرق دفع متعددة
+              <b>{prPrice}₪</b> | الدفع عند التوصيل
             </p>
 
             <div className="buy">

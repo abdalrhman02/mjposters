@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
+import { useAuth } from '../Components/AuthContext';
+
+// Firebase 
 import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebaseconfig';
@@ -39,7 +42,6 @@ function AdminPage() {
         getProductsList();
         window.location.reload()
     };
-
 
     const getProductsList = async () => {
         const data = await getDocs(productsCollection);
@@ -84,6 +86,21 @@ function AdminPage() {
     
     const filteredProducts = productsList.filter(product => product.type === selectedValue);
 
+
+    const { currentUser, userRole } = useAuth();
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      if (!currentUser) {
+        navigate('/login');
+      } else if (userRole !== 'Admin') {
+        navigate('/');
+      } else if (userRole === 'Admin') {
+        navigate('adminpage')
+      }
+    }, [currentUser, userRole, navigate]);
+    
+    
     return (
         <div className='admin-page'>
             <Header />
