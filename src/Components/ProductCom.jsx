@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../Components/CartContext';
 import { useAuth } from '../Components/AuthContext';
 
@@ -9,9 +9,13 @@ function ProductCom({
   prDescription,
   prImg,
   productId,
+  addToFavorites,
+  removeFromFavorites,
+  isFavorite,
 }) {
   const { currentUser } = useAuth();
   const { addToCart } = useCart();
+  const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
   const handleAddToCart = () => {
     if (currentUser) {
@@ -27,6 +31,26 @@ function ProductCom({
       addToCart(product);
     } else {
       alert('يرجى تسجيل الدخول لإضافة المنتج إلى السلة.');
+    }
+  };
+
+  const handleToggleFavorite = () => {
+    if (currentUser) {
+      if (isFavoriteState) {
+        removeFromFavorites(productId);
+      } else {
+        addToFavorites({
+          id: productId,
+          name: prName,
+          price: prPrice,
+          type: prType,
+          description: prDescription,
+          imageUrl: prImg,
+        });
+      }
+      setIsFavoriteState(!isFavoriteState); // Toggle the local state
+    } else {
+      alert('يرجى تسجيل الدخول لإضافة المنتج إلى المفضلة.');
     }
   };
 
@@ -49,7 +73,11 @@ function ProductCom({
               <button className="btn" onClick={handleAddToCart}>
                 اضف للسلة
               </button>
-              <i className="fa-regular fa-heart"></i>
+
+              {/* <i
+                className={isFavoriteState ? "fa-solid fa-heart" : "fa-regular fa-heart"}
+                onClick={handleToggleFavorite}
+              ></i> */}
             </div>
 
             <p className="description">{prDescription}</p>

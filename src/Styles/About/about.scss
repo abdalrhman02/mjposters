@@ -15,6 +15,7 @@
 
         .background {
             width: 100%;
+            height: 100%;
         }
 
         .content {
@@ -104,5 +105,39 @@
                 margin-top: 15px
             }
         }
+    }
+}
+
+@media (max-width: 1200px) {
+    .about .intro .content h3 {
+        font-size: 33px;
+    }
+    .about .intro .content h1 {
+        font-size: 60px;
+    }
+    .about .intro .content img {
+        width: 13em;
+    }
+}
+
+@media (max-width: 900px) {
+    .about .intro .content h3 {
+        font-size: 25px;
+    }
+    .about .intro .content h1 {
+        font-size: 50px;
+    }
+    .about .intro .content img {
+        width: 11em;
+    } 
+}
+
+@media (max-width: 750px) {
+    .about .intro {
+        height: 55vh;
+    }
+
+    .container {
+        margin: 0 60px;
     }
 }

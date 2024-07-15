@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { auth } from '../firebaseconfig';
 import { useAuth } from '../Components/AuthContext';
+import { Link } from 'react-router-dom';
+import { collection, getDocs, getDoc, doc } from 'firebase/firestore';
+import { db } from '../firebaseconfig';
 
 // Components
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 
 function ProfilePage() {
-
     const { currentUser, logout } = useAuth();
-
     const [user, setUser] = useState(null);
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -23,6 +24,51 @@ function ProfilePage() {
         return () => unsubscribe();
     }, []);
     
+    const [favoritePosters, setFavoritePosters] = useState([]);
+    const productsCollection = collection(db, 'products');
+  
+    const getFavoritePosters = async () => {
+      try {
+        const favoriteIds = localStorage.getItem('favoritePosters');
+        if (favoriteIds) {
+          const favoriteIdsArray = JSON.parse(favoriteIds);
+          const favoriteProducts = await Promise.all(
+            favoriteIdsArray.map(async (id) => {
+              const productDoc = doc(db, 'products', id);
+              const productData = await getDoc(productDoc);
+              if (productData.exists()) {
+                return { ...productData.data(), id: productData.id };
+              }
+              return null;
+            })
+          );
+          setFavoritePosters(favoriteProducts.filter((product) => product !== null));
+        }
+      } catch (error) {
+        console.error('Error fetching favorite posters: ', error);
+      }
+    };
+  
+    useEffect(() => {
+      getFavoritePosters();
+    }, []);
+  
+    const addToFavorites = (product) => {
+      const updatedFavorites = [...favoritePosters, product];
+      setFavoritePosters(updatedFavorites);
+      updateLocalStorageFavorites(updatedFavorites);
+    };
+
+    const removeFromFavorites = (productId) => {
+      const updatedFavorites = favoritePosters.filter((product) => product.id !== productId);
+      setFavoritePosters(updatedFavorites);
+      updateLocalStorageFavorites(updatedFavorites);
+    };
+
+    const updateLocalStorageFavorites = (favorites) => {
+      const favoriteIds = favorites.map((product) => product.id);
+      localStorage.setItem('favoritePosters', JSON.stringify(favoriteIds));
+    };
 
     return (
         <div className='profilePage'>
@@ -79,15 +125,27 @@ function ProfilePage() {
                                 </div>
                             </div>
 
-                            <div className='favorite'>
+                            {/* <div className='favorite'>
                                 <h3>قائمة المفضلة</h3>
 
                                 <div className='favorite-list'>
-                                    <img src={require('../Images/Posters/p3.png')} />
-                                    <img src={require('../Images/Posters/p2.png')} />
-                                    <img src={require('../Images/Posters/p5.png')} />
+                                {favoritePosters.length > 0 ? (
+                                    favoritePosters.map((product) => (
+                                    <Link to={`/product/${product.id}`} key={product.id}>
+                                        <div className="poster">
+                                        <img
+                                            src={product.imageUrl + '?alt=media'}
+                                            alt={`Product ${product.id}_${product.name}`}
+                                        />
+                                        <h3 className="poster-name">{product.name}</h3>
+                                        </div>
+                                    </Link>
+                                    ))
+                                ) : (
+                                    <p>لا توجد ملصقات مفضلة حتى الآن.</p>
+                                )}
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className='message'>
                                 <h2>هل لديك تعليق على خدماتنا؟</h2>

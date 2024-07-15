@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebaseconfig';
 import { CartProvider, useCart } from '../Components/CartContext';
 
@@ -11,7 +12,7 @@ import Footer from '../Components/Footer';
 function Store() {
 
     const [productsList, setProductsList] = useState([]);
-    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue, setSelectedValue] = useState('الاكثر مبيعا');
     const [specialImageFile, setSpecialImageFile] = useState(null);
     const productsCollection = collection(db, "products");
 
@@ -117,17 +118,32 @@ function Store() {
         }
     };
 
-    const handleAddSpecialImageToCart = () => {
+    const handleAddSpecialImageToCart = async () => {
         if (specialImageFile) {
-            const specialImageProduct = {
-                id: 'special_image_poster_' + Date.now(),
-                name: 'بوستر بصورة خاصة',
-                imageUrl: URL.createObjectURL(specialImageFile),
-                price: 200, 
-                type: 'صورة خاصة'
-            };
-            addToCart(specialImageProduct);
-            alert('تم إضافة الصورة الخاصة إلى السلة');
+            const storage = getStorage();
+            const storageRef = ref(storage, 'special_images/' + specialImageFile.name);
+            try {
+                // Upload the image
+                const snapshot = await uploadBytes(storageRef, specialImageFile);
+                // Get the download URL
+                const downloadURL = await getDownloadURL(snapshot.ref);
+                console.log('Download URL:', downloadURL);
+    
+                const specialImageProduct = {
+                    id: 'special_image_poster_' + Date.now(),
+                    name: 'بوستر بصورة خاصة',
+                    imageUrl: downloadURL,  // Use the download URL
+                    price: 200,
+                    type: 'صورة خاصة',
+                    quantity: 1
+                };
+    
+                addToCart(specialImageProduct);
+                alert('تم إضافة الصورة الخاصة إلى السلة');
+            } catch (error) {
+                console.error('Error uploading image:', error);
+                alert('حدث خطأ أثناء رفع الصورة.');
+            }
         } else {
             alert('يرجى اختيار صورة أولاً');
         }

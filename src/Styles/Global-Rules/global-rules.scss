@@ -205,3 +205,21 @@ footer {
         }
     }
 }
+
+// Footer Responsive
+@media (max-width: 600px) {
+    footer .footer-content {
+        padding: 14px 30px;
+        flex-direction: column-reverse;
+    }
+
+    footer .footer-content .links ul {
+        justify-content: center;
+        flex-direction: column;
+        margin: 30px 0 40px;
+    }
+}
+//Header Responsive
+// @media (max-width: ) {
+
+// }

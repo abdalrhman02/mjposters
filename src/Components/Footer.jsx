@@ -16,9 +16,9 @@ function Footer() {
                 
                 <div className="links">
                     <ul>
+                        <a href="/"><li>الرئيسية</li></a>
                         <a href="About"><li>من نحن</li></a>
-                        <a href="#"><li>سياسة الترجيع</li></a>
-                        <a href="#"><li> مشاركة زبائننا</li></a>
+                        <a href="Customers"><li> مشاركة زبائننا</li></a>
                     </ul>
                 </div>
 

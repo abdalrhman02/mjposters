@@ -6,9 +6,10 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import ProductCom from '../Components/ProductCom';
 
-function ProductPage() {
+function ProfilePage() {
   const [productsList, setProductsList] = useState([]);
   const [randomProducts, setRandomProducts] = useState([]);
+  const [favoritePosters, setFavoritePosters] = useState([]);
   const productsCollection = collection(db, 'products');
 
   const getRandomProducts = (products) => {
@@ -47,6 +48,19 @@ function ProductPage() {
     getProductDetails();
   }, [id]);
 
+  const addToFavorites = (product) => {
+    setFavoritePosters([...favoritePosters, product]);
+    // You may want to store this in Firebase or local storage for persistence
+  };
+
+  const removeFromFavorites = (productId) => {
+    const updatedFavorites = favoritePosters.filter(
+      (product) => product.id !== productId
+    );
+    setFavoritePosters(updatedFavorites);
+    // Update Firebase or local storage as needed
+  };
+
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -61,21 +75,24 @@ function ProductPage() {
         prDescription={product.description}
         prImg={product.imageUrl}
         productId={product.id} // Ensure productId is passed
+        addToFavorites={addToFavorites}
+        removeFromFavorites={removeFromFavorites}
+        isFavorite={favoritePosters.some((p) => p.id === product.id)}
       />
-      <div className='more-posters'>
-        <div className='center-title'>
+      <div className="more-posters">
+        <div className="center-title">
           <h2>بوسترات اخرى</h2>
-          <div className='title-line'></div>
+          <div className="title-line"></div>
         </div>
-        <div className='posters'>
+        <div className="posters">
           {randomProducts.map((product) => (
             <Link to={`/product/${product.id}`} key={product.id}>
-              <div className='poster'>
+              <div className="poster">
                 <img
                   src={product.imageUrl + '?alt=media'}
                   alt={`Product ${product.id}_${product.name}`}
                 />
-                <h3 className='poster-name'>{product.name}</h3>
+                <h3 className="poster-name">{product.name}</h3>
               </div>
             </Link>
           ))}
@@ -86,4 +103,4 @@ function ProductPage() {
   );
 }
 
-export default ProductPage;
+export default ProfilePage;

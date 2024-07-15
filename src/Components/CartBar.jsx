@@ -38,7 +38,7 @@ function CartBar() {
         console.error('Email error:', error);
       });
   };
-
+  
   // Area Delivery
   const [selectedArea, setSelectedArea] = useState('40');
   const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
