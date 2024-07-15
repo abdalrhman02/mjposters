@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState, createContext } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -13,6 +14,24 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null);
     const [userRole, setUserRole] = useState(null);
     const [loading, setLoading] = useState(true);
+
+        // useEffect(() => {
+    //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    //     if (user) {
+    //       const userDoc = await getDoc(doc(db, 'users', user.uid));
+    //       if (userDoc.exists()) {
+    //         setCurrentUser(user);
+    //         setUserRole(userDoc.data().role);
+    //       }
+    //     } else {
+    //       setCurrentUser(null);
+    //       setUserRole(null);
+    //     }
+    //     setLoading(false);
+    //   });
+  
+    //   return unsubscribe;
+    // }, []);
 
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -32,14 +51,13 @@ export function AuthProvider({ children }) {
       return unsubscribe;
     }, []);
 
-    // console.log(userRole)  
-
     const logout = () => {
         return signOut(auth);
     };
 
     const value = {
         currentUser,
+        userRole, // Make sure to include userRole in the context value
         logout
     };
 
