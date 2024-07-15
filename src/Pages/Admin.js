@@ -5,7 +5,8 @@ import { useAuth } from '../Components/AuthContext';
 // Firebase 
 import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db } from '../firebaseconfig';
+import { auth, db } from '../firebaseconfig';
+
 
 // Components
 import Header from '../Components/Header';
@@ -87,25 +88,47 @@ function AdminPage() {
     const filteredProducts = productsList.filter(product => product.type === selectedValue);
 
 
-    const { currentUser, userRole } = useAuth();
+    // Admin Access
+    const [loading, setLoading] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(false);
     const navigate = useNavigate();
-  
+
     useEffect(() => {
-      if (!currentUser) {
-        navigate('/login');
-      } else if (userRole !== 'Admin') {
-        console.log(userRole);
-        setTimeout(() => {
-            navigate('/');
-        }, 10000)
-      } else if (userRole === 'Admin') {
-        navigate('adminpage')
-      }
-    }, [currentUser, userRole, navigate]);
+        const checkUserRole = async () => {
+            const user = auth.currentUser;
+            if (!user) {
+                navigate('/login');
+                return;
+            }
+
+            try {
+                const userRef = db.collection('users').doc(user.uid);
+                const doc = await userRef.get();
+                if (doc.exists && doc.data().role === 'Admin') {
+                    setIsAdmin(true);
+                } else {
+                    navigate('/');
+                }
+            } catch (error) {
+                console.error('Error fetching user role:', error);
+                navigate('/login');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        checkUserRole();
+    }, [navigate]);
+
+    if (loading) {
+        return <div>Loading...</div>; // Or a loading spinner
+    }
     
     
     return (
-        <div className='admin-page'>
+        <>
+        {isAdmin ? (
+            <div className='admin-page'>
             <Header />
 
             <div className='container'>
@@ -203,6 +226,8 @@ function AdminPage() {
 
             <Footer />
         </div>
+        ): null}
+        </>
     )
 }
 
