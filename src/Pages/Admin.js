@@ -94,7 +94,10 @@ function AdminPage() {
       if (!currentUser) {
         navigate('/login');
       } else if (userRole !== 'Admin') {
-        navigate('/');
+        console.log(userRole);
+        setTimeout(() => {
+            navigate('/');
+        }, 10000)
       } else if (userRole === 'Admin') {
         navigate('adminpage')
       }
