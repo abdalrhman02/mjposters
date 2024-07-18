@@ -22,6 +22,7 @@ function AdminPage() {
   const { currentUser, userRole } = useAuth();
   const navigate = useNavigate();
 
+  // Check Admin Role
   useEffect(() => {
     if (!currentUser) {
       navigate('/login');
@@ -37,20 +38,41 @@ function AdminPage() {
   }, [currentUser, userRole]);
 
   const addProduct = async () => {
+    if (!newPrImage) {
+      console.error("No image selected");
+      return;
+    }
+  
     const storage = getStorage();
     const storageRef = ref(storage, `posters_images/${newPrImage.name}`);
-    await uploadBytes(storageRef, newPrImage);
-    const imageUrl = await getDownloadURL(storageRef);
-
-    await addDoc(collection(db, 'products'), {
-      name: newPrName,
-      price: newPrPrice,
-      description: newPrDesc,
-      type: newPrSection,
-      imageUrl: imageUrl
-    });
-
-    getProductsList();
+    try {
+      // Upload the image
+      await uploadBytes(storageRef, newPrImage);
+      // Get the download URL
+      const imageUrl = await getDownloadURL(storageRef);
+  
+      // Add the product with the image URL to Firestore
+      await addDoc(collection(db, 'products'), {
+        name: newPrName,
+        price: newPrPrice,
+        description: newPrDesc,
+        type: newPrSection,
+        imageUrl: imageUrl
+      });
+  
+      // Fetch the updated products list
+      getProductsList();
+  
+      // Clear the form fields
+      setNewPrName('');
+      setNewPrPrice(0);
+      setNewPrDesc('');
+      setNewPrSection('');
+      setNewPrImage(null);
+      imgView.current.style.backgroundImage = '';
+    } catch (error) {
+      console.error("Error uploading image or adding product:", error);
+    }
   };
 
   const getProductsList = async () => {
@@ -144,17 +166,17 @@ function AdminPage() {
             <div className='name-price-section'>
               <div>
                 <label htmlFor='posterName'>اسم البوستر:</label>
-                <input type='text' id='posterName' onChange={(e) => setNewPrName(e.target.value)} />
+                <input type='text' id='posterName' onChange={(e) => setNewPrName(e.target.value)} required />
               </div>
 
               <div>
                 <label htmlFor='posterPrice'>السعر:</label>
-                <input type='number' id='posterPrice' onChange={(e) => setNewPrPrice(e.target.value)} />
+                <input type='number' id='posterPrice' onChange={(e) => setNewPrPrice(e.target.value)} required />
               </div>
 
               <div>
                 <label htmlFor='posterSection'>القسم:</label>
-                <input type='text' id='posterSection' onChange={(e) => setNewPrSection(e.target.value)} />
+                <input type='text' id='posterSection' onChange={(e) => setNewPrSection(e.target.value)} required />
               </div>
             </div>
 
@@ -175,6 +197,7 @@ function AdminPage() {
                   accept='image/*'
                   ref={inputFile}
                   onChange={handleFileInputChange}
+                  required
                 />
 
                 <div className='imgView' ref={imgView}>

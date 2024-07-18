@@ -87,6 +87,7 @@ ul {
 }
 .posters .poster img {
   width: 230px;
+  border: 2px solid black;
   box-shadow: 2px 2px 6px 0 black;
 }
 .posters .poster h3 {
