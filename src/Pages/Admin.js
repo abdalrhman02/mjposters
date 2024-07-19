@@ -66,12 +66,7 @@ function AdminPage() {
       getProductsList();
   
       // Clear the form fields
-      setNewPrName('');
-      setNewPrPrice(0);
-      setNewPrDesc('');
-      setNewPrSection('');
-      setNewPrImage(null);
-      imgView.current.style.backgroundImage = '';
+      window.location.reload()
     } catch (error) {
       console.error("Error uploading image or adding product:", error);
     }
