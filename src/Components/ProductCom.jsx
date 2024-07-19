@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useCart } from '../Components/CartContext';
 import { useAuth } from '../Components/AuthContext';
 
@@ -16,6 +16,8 @@ function ProductCom({
   const { currentUser } = useAuth();
   const { addToCart } = useCart();
   const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
+  const errorNoti = useRef();
+  const successNoti = useRef();
 
   const handleAddToCart = () => {
     if (currentUser) {
@@ -29,33 +31,50 @@ function ProductCom({
         quantity: 1,
       };
       addToCart(product);
+      alert('تمت اضافة البوستر الى السلة');
     } else {
-      alert('يرجى تسجيل الدخول لإضافة المنتج إلى السلة.');
+      setTimeout(() => {
+        errorNoti.current.classList.add('disFlex');
+        errorNoti.current.classList.remove('disNone');
+      }, 4000)
     }
   };
 
-  const handleToggleFavorite = () => {
-    if (currentUser) {
-      if (isFavoriteState) {
-        removeFromFavorites(productId);
-      } else {
-        addToFavorites({
-          id: productId,
-          name: prName,
-          price: prPrice,
-          type: prType,
-          description: prDescription,
-          imageUrl: prImg,
-        });
-      }
-      setIsFavoriteState(!isFavoriteState); // Toggle the local state
-    } else {
-      alert('يرجى تسجيل الدخول لإضافة المنتج إلى المفضلة.');
-    }
-  };
+  // const handleToggleFavorite = () => {
+  //   if (currentUser) {
+  //     if (isFavoriteState) {
+  //       removeFromFavorites(productId);
+  //     } else {
+  //       addToFavorites({
+  //         id: productId,
+  //         name: prName,
+  //         price: prPrice,
+  //         type: prType,
+  //         description: prDescription,
+  //         imageUrl: prImg,
+  //       });
+  //     }
+  //     setIsFavoriteState(!isFavoriteState); 
+  //   } else {
+  //     alert('يرجى تسجيل الدخول لإضافة المنتج إلى المفضلة.');
+  //   }
+  // };
 
   return (
     <div className="productPage">
+      <div className='addProduct-Noti'>
+
+        {/* <div className="success" ref={successNoti}>
+          <img src={require('../Images/Icons/success.png')} />
+          <h3>تمت اضافة البوستر الى سلة الشراء</h3>
+        </div> */}
+
+        <div className="error disNone" ref={errorNoti}>
+          <img src={require('../Images/Icons/error.png')} />
+          <h3>عليك تسجيل الدخول اولا</h3>
+        </div>
+
+      </div>
       <div className="container">
         <div className="product-info">
           <div className="poster-image">

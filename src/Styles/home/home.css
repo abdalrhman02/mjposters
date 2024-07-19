@@ -247,4 +247,25 @@
 .home .posters-types .types .type .text .btn {
   width: 9em;
   display: none;
+}
+
+@media (max-width: 1500px) {
+  .home .intro .text h1 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 1200px) {
+  .home .posters-types .types .type {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .home .posters-types .types .type:nth-child(2) {
+    flex-direction: column-reverse;
+  }
+  .home .posters-types .types .type .text {
+    text-align: center;
+  }
+  .home .posters-types .types .type .text h5 {
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=home.css.map */

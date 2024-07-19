@@ -63,6 +63,10 @@ ul {
   font-size: 18px;
 }
 
+.noti-move {
+  left: 2em;
+}
+
 .disNone {
   display: none;
 }
@@ -79,6 +83,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 4em;
   margin: 2.5em 0 5em;
 }
@@ -87,7 +92,6 @@ ul {
 }
 .posters .poster img {
   width: 230px;
-  border: 2px solid black;
   box-shadow: 2px 2px 6px 0 black;
 }
 .posters .poster h3 {
@@ -145,6 +149,18 @@ header .links-user .user {
 }
 header .links-user .user img {
   width: 30px;
+}
+
+.small-header {
+  text-align: center;
+}
+.small-header .logo img {
+  width: 5em;
+}
+.small-header .links-user {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
 }
 
 footer {

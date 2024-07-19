@@ -21,10 +21,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8784313725);
-  padding: 4em 10em;
   border-radius: 10px;
+  width: 40em;
+  height: 33em;
 }
 .signup-page .container .form .form-title h1 {
   position: relative;
@@ -83,4 +85,29 @@
 }
 .signup-page .container .images img {
   width: 220px;
+}
+
+@media (max-width: 800px) {
+  .signup-page .container .form {
+    width: 35em;
+  }
+  .signup-page .container .form .form-title h1 {
+    font-size: 34px;
+  }
+  .signup-page .container .form .form-title h1::after {
+    width: 35%;
+  }
+  .signup-page .container .form .form-title p {
+    margin: 17px 0 20px;
+    font-size: 16px;
+  }
+  .signup-page .container .form form div input {
+    width: 20em;
+    height: 2.5em;
+  }
+}
+@media (max-width: 650px) {
+  .signup-page .container .form {
+    width: 90%;
+  }
 }/*# sourceMappingURL=signup.css.map */

@@ -109,7 +109,7 @@ function ProfilePage() {
                                             {user.email}
                                         </p>
                                     ) : (
-                                        <p>Username Here</p>   
+                                        <p>Email Here</p>   
                                     )}
                                 </div>
                             </div>

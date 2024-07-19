@@ -6,6 +6,7 @@
 }
 .store-allSections .container .sections {
   margin-top: 100px;
+  width: 15em;
 }
 .store-allSections .container .sections ul li {
   font-size: 18px;
@@ -18,7 +19,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 60em;
 }
 .store-allSections .container .gallery-container h2 {
   font-size: 35px;
@@ -145,4 +145,31 @@
   gap: 1em;
   margin-top: 30px;
   font-size: 18px;
+}
+@media (max-width: 850px) {
+  .store-allSections .container {
+    padding: 0 0 5em;
+    margin: 0 80px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .store-allSections .container .sections {
+    margin-top: 70px;
+    width: 100%;
+  }
+  .store-allSections .container .sections ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2em;
+  }
+  .store-allSections .container .sections ul li {
+    margin-bottom: 0;
+    background-color: var(--purple);
+    color: #fff;
+    font-weight: 600;
+    padding: 0 7px;
+    border-radius: 4px;
+  }
 }/*# sourceMappingURL=store.css.map */

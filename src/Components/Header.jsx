@@ -53,21 +53,14 @@ function Header() {
                </div>
                </header>
             ) : (
-                <header>
-                <div className="logo-shipping">
+                <header className='small-header'>
                     <a href="/">
                         <div className="logo">
                             <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
                         </div>
                     </a>
-    
-                    <div className="shipping">
-                        <img className='ship-icon' src={require('../Images/Icons/shipping.png')} />
-                        <p>توصيل الى كل المناطق - سسس | الضفة | القدس</p>
-                    </div>
-                </div>
-    
-                <div className="links-user">
+
+                    <div className="links-user">
                     <ul className='links'>
                         <a href="Store" className='btn'><li>جميع الاقسام</li></a>
                         <a href="About"><li>من نحن</li></a>

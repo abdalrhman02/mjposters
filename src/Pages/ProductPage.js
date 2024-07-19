@@ -6,7 +6,7 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import ProductCom from '../Components/ProductCom';
 
-function ProfilePage() {
+function ProductPage() {
   const [productsList, setProductsList] = useState([]);
   const [randomProducts, setRandomProducts] = useState([]);
   const [favoritePosters, setFavoritePosters] = useState([]);
@@ -103,4 +103,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default ProductPage;

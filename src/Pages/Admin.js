@@ -47,9 +47,11 @@ function AdminPage() {
     const storageRef = ref(storage, `posters_images/${newPrImage.name}`);
     try {
       // Upload the image
+      console.log("Uploading image:", newPrImage.name);
       await uploadBytes(storageRef, newPrImage);
       // Get the download URL
       const imageUrl = await getDownloadURL(storageRef);
+      console.log("Image uploaded and URL obtained:", imageUrl);
   
       // Add the product with the image URL to Firestore
       await addDoc(collection(db, 'products'), {
@@ -93,9 +95,17 @@ function AdminPage() {
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Clear previous state
+      setNewPrImage(null);
+      imgView.current.style.backgroundImage = '';
+  
+      // Set new image
       setNewPrImage(file);
       const imgLink = URL.createObjectURL(file);
       imgView.current.style.backgroundImage = `url(${imgLink})`;
+  
+      // Log the selected file for debugging
+      console.log("Selected file:", file);
     }
   };
 
