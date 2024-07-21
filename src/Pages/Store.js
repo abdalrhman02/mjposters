@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db } from '../firebaseconfig';
-import { CartProvider, useCart } from '../Components/CartContext';
+import { useCart } from '../Components/CartContext';
 
 // Components
 import Header from '../Components/Header';
@@ -69,6 +69,7 @@ function Store() {
                             <p>- تأكد من ان تكون جودة الصورة جيدة و واضحة</p>
                             <p>- يجب ان تكون قياسات الصورة مناسبة عاموديا</p>
                             <p>- سنقوم بالتواصل معك في حالة وجدنا ان الصورة غير مناسبة</p>
+                            <p>- انتظر الاشعار للتأكد من اضافة البوستر للسلة</p>
                             <p>- اكمال الطلب في سلة التسوق</p>
                         </div>
                     </div>
@@ -115,11 +116,16 @@ function Store() {
             const imgLink = URL.createObjectURL(file);
             imgView.current.style.backgroundImage = `url(${imgLink})`;
             setSpecialImageFile(file);  // Store the selected file
+            console.log('File selected:', file);
         }
     };
 
+    const errorNoti = useRef();
+    const successNoti = useRef();
     const handleAddSpecialImageToCart = async () => {
+        console.log('handleAddSpecialImageToCart called');
         if (specialImageFile) {
+            console.log('Special image file exists:', specialImageFile);
             const storage = getStorage();
             const storageRef = ref(storage, 'special_images/' + specialImageFile.name);
             try {
@@ -138,70 +144,75 @@ function Store() {
                     quantity: 1
                 };
     
+                console.log('Adding to cart:', specialImageProduct);
                 addToCart(specialImageProduct);
-                alert('تم إضافة الصورة الخاصة إلى السلة');
+                
+                // added Notification
+                successNoti.current.classList.add('disFlex');
+                successNoti.current.classList.remove('disNone');
+                setTimeout(() => {
+                  successNoti.current.classList.remove('disFlex');
+                  successNoti.current.classList.add('disNone');
+                }, 3000)
             } catch (error) {
                 console.error('Error uploading image:', error);
                 alert('حدث خطأ أثناء رفع الصورة.');
             }
         } else {
-            alert('يرجى اختيار صورة أولاً');
+            // error added Notification
+            errorNoti.current.classList.add('disFlex');
+            errorNoti.current.classList.remove('disNone');
+            setTimeout(() => {
+                errorNoti.current.classList.remove('disFlex');
+                errorNoti.current.classList.add('disNone');
+            }, 3000)
         }
     };
 
-    // Scrolling
-    window.addEventListener('scroll', function() {
-        var targetPos = 20;
-
-        if(window.screenY >= targetPos) {
-            console.log(window.screenY)
-        }
-        console.log(window.screenY)
-    });
-
     return (
-        <CartProvider>
-            <div className="store-allSections">
-                <Header />
+        <div className="store-allSections">
+            <Header />
 
-                <div className="container">
-                    <div className="sections">
-                        <ul onClick={changeType}>
-                            <li>الاكثر مبيعا</li>
-                            <li>جديدنا</li>
-                            <li>مسلسلات</li>
-                            <li>انمي</li>
-                            <li>العاب</li>
-                            <li>البومات</li>
-                            <li>سيارات</li>
-                            <li>رياضة</li>
-                            <li>صورة خاصة</li>
-                            <li>تصميم خاص</li>
-                        </ul>
-                    </div>
-
-                    <div className="gallery-container">
-                        <h2>{selectedValue}</h2>
-                        <p className='title-para'>جميع البوسترات الموجودة هنا بسعر 130 شاقل فقط - باستثناء الصور و التصاميم الخاصة</p>
-
-                        <div className="gallery">
-                            {renderUniqueContent(selectedValue)}
-                        </div>
-
-                        {/* <ul className="numbers">
-                            <li>1</li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            <li>6</li>
-                        </ul> */}
-                    </div>
+            <div className='noti'>
+                <div className="success disNone" ref={successNoti}>
+                    <img src={require('../Images/Icons/success.png')} />
+                    <h3>تمت اضافة البوستر الى سلة الشراء</h3>
                 </div>
 
-                <Footer />
+                <div className="error disNone" ref={errorNoti}>
+                    <img src={require('../Images/Icons/error.png')} />
+                    <h3>اختر صورة اولا</h3>
+                </div>
             </div>
-        </CartProvider>
+
+            <div className="container">
+                <div className="sections">
+                    <ul onClick={changeType}>
+                        <li>الاكثر مبيعا</li>
+                        <li>جديدنا</li>
+                        <li>مسلسلات</li>
+                        <li>انمي</li>
+                        <li>العاب</li>
+                        <li>البومات</li>
+                        <li>سيارات</li>
+                        <li>رياضة</li>
+                        <li>صورة خاصة</li>
+                        <li>تصميم خاص</li>
+                    </ul>
+                </div>
+
+                <div className="gallery-container">
+                    <h2>{selectedValue}</h2>
+                    <p className='title-para'>جميع البوسترات الموجودة هنا بسعر 130 شاقل فقط - باستثناء الصور و التصاميم الخاصة</p>
+
+                    <div className="gallery">
+                        {renderUniqueContent(selectedValue)}
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
+        </div>
     );
 }
 

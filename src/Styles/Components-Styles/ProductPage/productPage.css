@@ -3,28 +3,6 @@
   overflow: hidden;
   position: relative;
 }
-.productPage .addProduct-Noti .success, .productPage .addProduct-Noti .error {
-  align-items: center;
-  gap: 1em;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 3px 12px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 6px 0px #b7b7b7;
-  position: fixed;
-  top: 12em;
-  left: 2em;
-  color: #fff;
-}
-.productPage .addProduct-Noti .success img, .productPage .addProduct-Noti .error img {
-  width: 2.5em;
-}
-.productPage .addProduct-Noti .success {
-  background-color: rgba(35, 147, 38, 0.631372549);
-}
-.productPage .addProduct-Noti .error {
-  background-color: rgba(147, 35, 35, 0.631372549);
-}
 .productPage .container {
   overflow: hidden;
 }

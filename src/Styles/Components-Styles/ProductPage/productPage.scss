@@ -2,36 +2,6 @@
     padding: 4em 0;
     overflow: hidden;
     position: relative;
-    
-    .addProduct-Noti {
-
-        .success , .error {
-            align-items: center;
-            gap: 1em;
-            width: fit-content;
-            padding: 3px 12px;
-            border-radius: 5px;
-            box-shadow: 2px 2px 6px 0px #b7b7b7;
-            position: fixed;
-            top: 12em;
-            left: 2em;
-            color: #fff;
-
-            img {
-                width: 2.5em;
-            }
-
-            h3 {
-
-            }
-        }
-        .success {
-            background-color: #239326a1;
-        }
-        .error {
-            background-color: #932323a1;
-        }
-    }
 
     .container {
         .product-info {

@@ -6,11 +6,15 @@ import { useAuth } from '../Components/AuthContext';
 function CartBar() {
   const { currentUser } = useAuth(); // Check if user is logged in
 
-  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = useCart();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const [coupon, setCoupon] = useState('');
 
+  const validCoupon = 'MJSUMMER';
+  const errorNoti = useRef();
+  const successNoti = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,10 +36,22 @@ function CartBar() {
 
     emailjs.send('service_4ecmwl9', 'template_ysxvoal', templateParams, 'VbqH9pjNBo8llwQFr')
       .then((response) => {
-        console.log('Email sent:', response);
+        // added Notification
+        successNoti.current.classList.add('disFlex');
+        successNoti.current.classList.remove('disNone');
+        setTimeout(() => {
+          successNoti.current.classList.remove('disFlex');
+          successNoti.current.classList.add('disNone');
+        }, 3000)
       })
       .catch((error) => {
-        console.error('Email error:', error);
+          // error added Notification
+          errorNoti.current.classList.add('disFlex');
+          errorNoti.current.classList.remove('disNone');
+          setTimeout(() => {
+            errorNoti.current.classList.remove('disFlex');
+            errorNoti.current.classList.add('disNone');
+          }, 3000)
       });
   };
   
@@ -48,12 +64,14 @@ function CartBar() {
 
   // Total Price
   const priceWithoutDelivery = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  const totalPrice = priceWithoutDelivery + areaPrice
-
+  const originalPrice = priceWithoutDelivery + areaPrice;
+  const totalPrice = priceWithoutDelivery + areaPrice;
+  const discount = coupon === validCoupon ? totalPrice * 0.25 : 0;
+  const discountedPrice = originalPrice - discount;
+  
   // Check Cart List Count
   let cartList = useRef();
-  console.log(cartList.current)
-
+  
   return (
     <div className='cartbar'>
       {currentUser ? (
@@ -100,8 +118,24 @@ function CartBar() {
                 </select>
               </div>
 
+              <div className='coupon'>
+                <label htmlFor="coupon">كود الخصم</label>
+                <input 
+                  type="text" 
+                  id="coupon" 
+                  value={coupon} 
+                  onChange={(e) => setCoupon(e.target.value)} 
+                />
+              </div>
+
               <div className='totalPrice'>
-                <p>السعر النهائي: <b>{totalPrice}₪</b></p>
+                <p>السعر الاصلي: <b>{totalPrice}₪</b></p>
+                <p className="note" style={{fontSize:"14px", marginTop:"5px"}}>لن يظهر السعر بعد الخصم ان كان كود الخصم خاطئ او منتهي!</p>
+                {discount > 0 && (
+                  <>
+                    <p>السعر بعد الخصم: <b>{Math.floor(discountedPrice)}₪</b></p>
+                  </>
+                )}
               </div>
 
               <div className='the-form'>

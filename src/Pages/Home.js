@@ -23,7 +23,9 @@ function Home() {
                 </div>
 
                 <div className='images'>
-                    <img src={require('../Images/intro-img.png')} />
+                    <img src={require('../Images/Posters/p1.png')} />
+                    <img src={require('../Images/Posters/p2.png')} />
+                    <img src={require('../Images/Posters/p3.png')} />
                 </div>
             </div>
 

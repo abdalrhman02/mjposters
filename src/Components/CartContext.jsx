@@ -38,11 +38,15 @@ export const CartProvider = ({ children }) => {
       item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
     ));
   };
-
   const decreaseQuantity = (itemId) => {
     setCartItems(cartItems.map(item =>
       item.id === itemId && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item
     ));
+  };
+
+  // used to clear cart after finish the order.
+  const clearCart = () => {
+    setCartItems([]);
   };
 
   useEffect(() => {

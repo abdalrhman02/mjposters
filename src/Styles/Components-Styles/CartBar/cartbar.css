@@ -71,6 +71,7 @@
 }
 .cartbar .cart-list .totalPrice p {
   font-size: 20px;
+  margin-top: 10px;
 }
 .cartbar .cart-list .totalPrice p b {
   background-color: var(--purple);

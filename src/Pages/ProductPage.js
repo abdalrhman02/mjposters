@@ -68,6 +68,7 @@ function ProductPage() {
   return (
     <>
       <Header />
+        
       <ProductCom
         prName={product.name}
         prPrice={product.price}
@@ -79,6 +80,7 @@ function ProductPage() {
         removeFromFavorites={removeFromFavorites}
         isFavorite={favoritePosters.some((p) => p.id === product.id)}
       />
+
       <div className="more-posters">
         <div className="center-title">
           <h2>بوسترات اخرى</h2>

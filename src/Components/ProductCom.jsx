@@ -31,12 +31,20 @@ function ProductCom({
         quantity: 1,
       };
       addToCart(product);
-      alert('تمت اضافة البوستر الى السلة');
+      
+        successNoti.current.classList.add('disFlex');
+        successNoti.current.classList.remove('disNone');
+        setTimeout(() => {
+          successNoti.current.classList.remove('disFlex');
+          successNoti.current.classList.add('disNone');
+        }, 3000)
     } else {
+      errorNoti.current.classList.add('disFlex');
+      errorNoti.current.classList.remove('disNone');
       setTimeout(() => {
-        errorNoti.current.classList.add('disFlex');
-        errorNoti.current.classList.remove('disNone');
-      }, 4000)
+        errorNoti.current.classList.remove('disFlex');
+        errorNoti.current.classList.add('disNone');
+      }, 3000)
     }
   };
 
@@ -62,19 +70,20 @@ function ProductCom({
 
   return (
     <div className="productPage">
+        
       <div className='addProduct-Noti'>
-
-        {/* <div className="success" ref={successNoti}>
+        <div className="success disNone" ref={successNoti}>
           <img src={require('../Images/Icons/success.png')} />
           <h3>تمت اضافة البوستر الى سلة الشراء</h3>
-        </div> */}
+        </div>
 
         <div className="error disNone" ref={errorNoti}>
           <img src={require('../Images/Icons/error.png')} />
-          <h3>عليك تسجيل الدخول اولا</h3>
+          <h3>يرجى تسجيل الدخول اولا</h3>
         </div>
 
       </div>
+
       <div className="container">
         <div className="product-info">
           <div className="poster-image">
