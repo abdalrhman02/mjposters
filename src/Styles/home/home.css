@@ -356,6 +356,16 @@
   .home .intro .images img:nth-child(2) {
     width: 170px;
   }
+  .home .some-sections .container {
+    margin: 0 60px;
+  }
+  .home .some-sections .container .sections a .section {
+    width: 21em;
+    height: 14em;
+  }
+  .home .some-sections .container .sections a .section h4 {
+    font-size: 45px;
+  }
   .home .posters-types .types .type .images img {
     width: 150px;
   }
@@ -364,5 +374,9 @@
   }
   .home .posters-types .types .type .text p {
     font-size: 17px;
+  }
+  .home .posters-types .types .type .images .empty-poster {
+    height: 18em;
+    width: 11em;
   }
 }/*# sourceMappingURL=home.css.map */
