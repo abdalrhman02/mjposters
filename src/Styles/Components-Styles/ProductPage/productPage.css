@@ -18,7 +18,7 @@
 }
 .productPage .container .product-info .poster-image img {
   width: 25em;
-  border: 15px solid black;
+  border: 5px solid black;
 }
 .productPage .container .product-info .poster-info {
   height: -moz-fit-content;
@@ -65,8 +65,11 @@
   }
 }
 @media (max-width: 950px) {
+  .productPage .container {
+    margin: 0 40px;
+  }
   .productPage .container .product-info .poster-image img {
-    width: 23em;
+    width: 18em;
   }
   .productPage .container .product-info {
     flex-direction: column;

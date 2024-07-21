@@ -180,3 +180,17 @@
         }
     }
 }
+
+
+@media (max-width: 800px) {
+    .cartbar .loginCart .container {
+        width: 90%;
+    }
+    .cartbar .loginCart .container h1 {
+        font-size: 35px;
+    }
+    .cartbar .loginCart .container .btns {
+        gap: 1em;
+        flex-direction: column;
+    }
+}

@@ -177,7 +177,7 @@ function CartBar() {
             <div className="container">
               <h1>سجل دخولك الان و احصل على البوستر الخاص بك!</h1>
 
-              <div className="btns">
+              <div className="btns">  
                 <a href="Login">
                   <button className='btn'>تسجيل الدخول</button>
                 </a>
