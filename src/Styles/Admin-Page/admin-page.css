@@ -38,6 +38,8 @@
 }
 .admin-page .container .posters-list .list .poster .details .name p {
   font-size: 18px;
+  max-width: 200px;
+  text-align: center;
 }
 .admin-page .container .posters-list .list .poster .details div {
   display: flex;

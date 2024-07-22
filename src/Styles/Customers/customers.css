@@ -1,13 +1,46 @@
 .customers .container {
   padding: 4em 0;
 }
-.customers .container .photos {
+.customers .container .customers {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 4em;
+  gap: 12em;
+  margin-top: 3em;
 }
-.customers .container .photos img {
-  width: 18em;
+.customers .container .customers .customer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+}
+.customers .container .customers .customer .poster-img img {
+  width: 15em;
+  box-shadow: 2px 2px 7px 0px black;
+}
+.customers .container .customers .customer .poster-img .ver-img {
+  width: 24em;
+}
+.customers .container .customers .customer .comment {
+  margin-top: 50px;
+  position: relative;
+}
+.customers .container .customers .customer .comment .quote-icon {
+  width: 30px;
+  position: absolute;
+}
+.customers .container .customers .customer .comment .quote-icon:nth-child(1) {
+  top: -35px;
+  left: 0;
+}
+.customers .container .customers .customer .comment .quote-icon:last-child {
+  bottom: -35px;
+  right: 0px;
+  transform: rotate(180deg);
+}
+.customers .container .customers .customer .comment h3 {
+  max-width: 400px;
+  text-align: center;
 }/*# sourceMappingURL=customers.css.map */

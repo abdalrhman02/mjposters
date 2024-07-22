@@ -44,6 +44,7 @@
 .home .intro .images img {
   width: 250px;
   position: relative;
+  border: 5px solid black;
 }
 .home .intro .images img:first-child {
   transform: rotate(5deg) translate(-22px, 15px);
@@ -73,6 +74,7 @@
 .home .top-sales .posters .poster img, .home .some-sections-posters .posters .poster img {
   width: 230px;
   box-shadow: 4px 4px 7px 0 black;
+  border: 5px solid black;
 }
 .home .top-sales .posters .poster h3, .home .some-sections-posters .posters .poster h3 {
   margin-top: 9px;
@@ -193,7 +195,8 @@
   align-items: center;
 }
 .home .posters-types .types .type .images img {
-  width: 220px;
+  width: 210px;
+  border: 4px solid black;
   position: relative;
 }
 .home .posters-types .types .type .images img:first-child {

@@ -66,7 +66,7 @@ function AdminPage() {
       getProductsList();
   
       // Clear the form fields
-      window.location.reload()
+      // window.location.reload()
     } catch (error) {
       console.error("Error uploading image or adding product:", error);
     }
@@ -127,6 +127,8 @@ function AdminPage() {
         <div className='posters-list'>
           <select onChange={selectChange} value={selectedValue}>
             <option>اختر القسم</option>
+            <option value="الاكثر مبيعا">قسم الاكثر مبيعا</option>
+            <option value="جديدنا">قسم جديدنا</option>
             <option value="مسلسلات">قسم المسلسلات</option>
             <option value="انمي">قسم الانمي</option>
             <option value="العاب">قسم العاب</option>
@@ -135,6 +137,7 @@ function AdminPage() {
             <option value="طبيعة">قسم الطبيعة</option>
             <option value="رياضة">قسم الرياضة</option>
             <option value="مدن">قسم المدن</option>
+            <option value="شخصيات مشهورة">قسم شخصيات مشهورة</option>
           </select>
 
           <div className='list'>

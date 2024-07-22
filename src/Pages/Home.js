@@ -17,15 +17,14 @@ function Home() {
                     
                     <div className='btn-socials'>
                         <a href="Store"><button className='btn'>تسوق الان</button></a>
-                        <a href="#"><img src={require('../Images/Icons/whatsapp.png')} /></a>
                         <a href="https://www.instagram.com/mjposters/"><img src={require('../Images/Icons/instagram.png')} /></a>
                     </div>
                 </div>
 
                 <div className='images'>
-                    <img src={require('../Images/Posters/p1.png')} />
-                    <img src={require('../Images/Posters/p2.png')} />
-                    <img src={require('../Images/Posters/p3.png')} />
+                    <img src={require('../Images/Posters/c3.jpg')} />
+                    <img src={require('../Images/Posters/p2.jpg')} />
+                    <img src={require('../Images/Posters/a1.jpg')} />
                 </div>
             </div>
 
@@ -36,20 +35,26 @@ function Home() {
                 </div>
 
                 <div className='posters'>
-                    <div className='poster'>
-                        <img src={require('../Images/Posters/p2.png')} />
-                        <h3 className='poster-name'>بوستر والتر وايت</h3>
-                    </div>
+                    <a href="https://mjposters.vercel.app/product/TPa0fe0dlGRcBL8EdFud">
+                        <div className='poster'>
+                            <img src={require('../Images/Posters/p2.jpg')} />
+                            <h3 className='poster-name'>بوستر والتر وايت</h3>
+                        </div>
+                    </a>
 
-                    <div className='poster'>
-                        <img src={require('../Images/Posters/p5.png')} />
-                        <h3 className='poster-name'>بوستر هجوم العمالقة</h3>
-                    </div>
+                    <a href="https://mjposters.vercel.app/product/Qs6z7grUDhKf38tHDHLO">
+                        <div className='poster'>
+                            <img src={require('../Images/Posters/p5.jpg')} />
+                            <h3 className='poster-name'>بوستر هجوم العمالقة</h3>
+                        </div>                    
+                    </a>
 
-                    <div className='poster'>
-                        <img src={require('../Images/Posters/p4.png')} />
-                        <h3 className='poster-name'>بوستر ليونيل ميسي</h3>
-                    </div>
+                    <a href='https://mjposters.vercel.app/product/SX3hrbNaSLm6hGijDZHr'>
+                        <div className='poster'>
+                            <img src={require('../Images/Posters/f1.jpg')} />
+                            <h3 className='poster-name'>بوستر ليونيل ميسي</h3>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -108,19 +113,19 @@ function Home() {
                         </div>
 
                         <div className='images'>
-                            <img src={require('../Images/Posters/p9.png')} />
-                            <img src={require('../Images/Posters/p12.png')} />
-                            <img src={require('../Images/Posters/p6.png')} />
+                            <img src={require('../Images/Posters/f2.jpg')} />
+                            <img src={require('../Images/Posters/s1.jpg')} />
+                            <img src={require('../Images/Posters/a2.jpg')} />
                         </div>
                     </div>
 
                     <div className='type'>
                         <div className='images'>
-                            <img src={require('../Images/Posters/p8.png')} />
+                            <img src={require('../Images/Posters/Custom1.jpg')} />
                             <div className='empty-poster'>
                                 <h4>صورتك الخاصة هنا</h4>
                             </div>
-                            <img src={require('../Images/Posters/p15.png')} />
+                            <img src={require('../Images/Posters/Custom2.jpg')} />
                         </div>
                         
                         <div className='text'>
@@ -146,11 +151,11 @@ function Home() {
                         </div>
 
                         <div className='images'>
-                            <img src={require('../Images/Posters/p18.png')} />
+                            <img src={require('../Images/Posters/Design1.jpg')} />
                             <div className='empty-poster'>
                                 <h4>تصميمك هنا</h4>
                             </div>
-                            <img src={require('../Images/Posters/p19.png')} />
+                            <img src={require('../Images/Posters/Design2.jpg')} />
                         </div>
                     </div>
                 </div>
@@ -164,20 +169,26 @@ function Home() {
                     </div>
 
                     <div className='posters'>
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p7.png')} />
-                            <h3 className='poster-name'>لوفي</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/W53HhhbIe5HDLGIWfZqY">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/a3.jpg')} />
+                                <h3 className='poster-name'>لوفي</h3>
+                            </div>
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p3.png')} />
-                            <h3 className='poster-name'>فينلاند ساغا</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/ZMa1qgmLcsGCoO57CoHR">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/a1.jpg')} />
+                                <h3 className='poster-name'>فينلاند ساغا</h3>
+                            </div> 
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p9.png')} />
-                            <h3 className='poster-name'>دراغون بول</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/LvxODAC3Dh4Ykb4qTTSJ">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/a2.jpg')} />
+                                <h3 className='poster-name'>دراغون بول</h3>
+                            </div>                            
+                        </a>
                     </div>
                 </div>
 
@@ -188,20 +199,26 @@ function Home() {
                     </div>
 
                     <div className='posters'>
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p8.png')} />
-                            <h3 className='poster-name'>اودي</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/oBbN1Arwocr7efAeFYbT">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/c1.jpg')} />
+                                <h3 className='poster-name'>سوبرا</h3>
+                            </div>
+                        </a>
+                        
+                        <a href="https://mjposters.vercel.app/product/f2BfcXS3chshXdrNmFWe">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/c4.jpg')} />
+                                <h3 className='poster-name'>فيراري 458</h3>
+                            </div>
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p10.png')} />
-                            <h3 className='poster-name'>فيراري 458</h3>
-                        </div>
-
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p11.png')} />
-                            <h3 className='poster-name'>بورش 911</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/F3g3oclhNOdaF4hE4J2o">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/c2.jpg')} />
+                                <h3 className='poster-name'>اودي</h3>
+                            </div>                            
+                        </a>
                     </div>
                 </div>
 
@@ -212,20 +229,26 @@ function Home() {
                     </div>
 
                     <div className='posters'>
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p6.png')} />
-                            <h3 className='poster-name'>كريستيانو رونالدو</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/HzcbaXLn6HIdgO1jK1y8">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/f2.jpg')} />
+                                <h3 className='poster-name'>كريستيانو رونالدو</h3>
+                            </div>                            
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p4.png')} />
-                            <h3 className='poster-name'>ليونيل ميسي</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/SX3hrbNaSLm6hGijDZHr">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/f1.jpg')} />
+                                <h3 className='poster-name'>ليونيل ميسي</h3>
+                            </div>
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/p6.png')} />
-                            <h3 className='poster-name'>كريستيانو رونالدو</h3>
-                        </div>
+                        <a href="#">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/f3.jpg')} />
+                                <h3 className='poster-name'>ريال مدريد</h3>
+                            </div>                            
+                        </a>
                     </div>
                 </div>
 
@@ -236,20 +259,26 @@ function Home() {
                     </div>
 
                     <div className='posters'>
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/Games/minecraft1.jpg')} />
-                            <h3 className='poster-name'>ماينكرافت</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/L73UVuppyPYZii3WZh6o">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/g2.jpg')} />
+                                <h3 className='poster-name'>ماينكرافت</h3>
+                            </div>
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/Games/journey1.jpg')} />
-                            <h3 className='poster-name'>جورني</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/9sI6vdUTaFZHdNmRMo37">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/g4.jpg')} />
+                                <h3 className='poster-name'>اسيسن كريد</h3>
+                            </div>                            
+                        </a>
 
-                        <div className='poster'>
-                            <img src={require('../Images/Posters/Games/zelda2.jpg')} />
-                            <h3 className='poster-name'>اسطورة زيلدا</h3>
-                        </div>
+                        <a href="https://mjposters.vercel.app/product/X0eluoYNfqF8VlHTV88d">
+                            <div className='poster'>
+                                <img src={require('../Images/Posters/g1.jpg')} />
+                                <h3 className='poster-name'>اسطورة زيلدا</h3>
+                            </div>                            
+                        </a>
                     </div>
                 </div>
             </div>

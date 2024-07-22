@@ -120,7 +120,7 @@ function ProfilePage() {
 
                                 <div className='purchases-list'>
                                     <img src={require('../Images/Posters/p18.png')} />
-                                    <img src={require('../Images/Posters/p12.png')} />
+                                    {/* <img src={require('../Images/Posters/p12.png')} /> */}
                                     <img src={require('../Images/Posters/p15.png')} />
                                 </div>
                             </div>

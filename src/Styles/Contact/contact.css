@@ -1,0 +1,84 @@
+.contact {
+  background: linear-gradient(180deg, var(--purple), var(--black));
+}
+.contact .contact-intro {
+  position: relative;
+  padding: 0 120px;
+  height: 70vh;
+  background-image: url("../../Images/aboutBG.png");
+}
+.contact .contact-intro::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.contact .contact-intro .title div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFF;
+  z-index: 1;
+}
+.contact .contact-intro .title div h1 {
+  font-size: 4em;
+}
+.contact .contact-intro .title div p {
+  font-size: 22px;
+  max-width: 500px;
+  line-height: 1.3em;
+}
+.contact .form {
+  padding: 65px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFF;
+}
+.contact .form p {
+  color: var(--yellow);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: -5px;
+}
+.contact .form h2 {
+  font-size: 2.5em;
+}
+.contact .form form {
+  margin-top: 1em;
+}
+.contact .form form .inp-gr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.contact .form form .inp-gr label {
+  align-self: self-start;
+  font-size: 18px;
+}
+.contact .form form .inp-gr input {
+  width: 25em;
+  height: 2.4em;
+  padding-right: 7px;
+  margin-top: 6px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: 2.5px solid black;
+  outline: none;
+}
+.contact .form form .inp-gr input:focus {
+  border: 2.5px solid var(--yellow);
+}
+.contact .form form .inp-gr [id=msg] {
+  height: 10em;
+}
+footer {
+  margin-top: 0;
+}/*# sourceMappingURL=contact.css.map */

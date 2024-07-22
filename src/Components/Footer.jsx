@@ -19,11 +19,12 @@ function Footer() {
                         <a href="/"><li>الرئيسية</li></a>
                         <a href="About"><li>من نحن</li></a>
                         <a href="Customers"><li> مشاركة زبائننا</li></a>
+                        <a href="Contact"><li>تواصل معنا</li></a>
                     </ul>
                 </div>
 
                 <div className="logo">
-                    <img src={require('../Images/Logo/logo-nobackground.png')} />
+                    <img src={require('../Images/Logo/logo2.png')} />
                 </div>
             </div>
 

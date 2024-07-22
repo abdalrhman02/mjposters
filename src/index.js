@@ -22,6 +22,7 @@ import AdminPage from './Pages/Admin';
 import ProductPage from './Pages/ProductPage';
 import ProfilePage from './Pages/ProfilePage';
 import Cart from './Pages/Cart';
+import Contact from './Pages/Contact';
 
 // Styles
 import './Styles/all.min.css'; // Fot FontAwesome
@@ -30,6 +31,7 @@ import './Styles/home/home.css';
 import './Styles/About/about.css';
 import './Styles/Store/store.css';
 import './Styles/Customers/customers.css';
+import './Styles/Contact/contact.css';
 import './Styles/Signup-Login/signup.css';
 import './Styles/Profile-Page/profile-page.css';
 import './Styles/Admin-Page/admin-page.css';
@@ -49,6 +51,7 @@ const router = createBrowserRouter([
   {path: "product/:id", element: <ProductPage/>,},
   {path: "ProfilePage", element: <ProfilePage/>,},
   {path: "Cart", element: <Cart/>,},
+  {path: "Contact", element: <Contact/>,},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

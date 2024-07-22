@@ -3,15 +3,54 @@
     .container {
         padding: 4em 0;
     
-        .photos {
+        .customers {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 4em;
+            gap: 12em;
+            margin-top: 3em;
 
-            img {
-                width: 18em
+            .customer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 2em;
+
+                .poster-img {
+                    img {
+                        width: 15em;
+                        box-shadow: 2px 2px 7px 0px black;
+                    }
+                    .ver-img {
+                        width: 24em
+                    }
+                }
+
+                .comment {
+                    margin-top: 50px;
+                    position: relative;
+
+                    .quote-icon {
+                        width: 30px;
+                        position: absolute;
+                    }
+                    .quote-icon:nth-child(1) {
+                        top: -35px;
+                        left: 0;
+                    }
+                    .quote-icon:last-child {
+                        bottom: -35px;
+                        right: -0px;
+                        transform: rotate(180deg);
+                    }
+
+                    h3 {
+                        max-width: 400px;
+                        text-align: center;
+                    }
+                }
             }
         }
     }

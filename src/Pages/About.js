@@ -13,7 +13,7 @@ function About() {
                 <div className='content'>
                     <h3>من نحن</h3>
                     <h1>تعرف على متجر</h1>
-                    <img src={require('../Images/Logo/logo-nobackground.png')} />
+                    <img src={require('../Images/Logo/logo1.png')} />
                 </div>
             </div>
 

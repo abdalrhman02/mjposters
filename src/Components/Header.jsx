@@ -24,7 +24,7 @@ function Header() {
                <div className="logo-shipping">
                    <a href="/">
                        <div className="logo">
-                           <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
+                           <img className='logo-img' src={require('../Images/Logo/logo1.png')} />
                        </div>
                    </a>
    
@@ -39,6 +39,7 @@ function Header() {
                        <a href="Store" className='btn'><li>جميع الاقسام</li></a>
                        <a href="About"><li>من نحن</li></a>
                        <a href="Customers"><li>مشاركة زبائننا</li></a>
+                       <a href="Contact"><li>تواصل معنا</li></a>
                    </ul>
    
                    <div className='user'>
@@ -56,7 +57,7 @@ function Header() {
                 <header className='small-header'>
                     <a href="/">
                         <div className="logo">
-                            <img className='logo-img' src={require('../Images/Logo/logo-nobackground.png')} />
+                            <img className='logo-img' src={require('../Images/Logo/logo1.png')} />
                         </div>
                     </a>
 
@@ -65,6 +66,7 @@ function Header() {
                         <a href="Store" className='btn'><li>جميع الاقسام</li></a>
                         <a href="About"><li>من نحن</li></a>
                         <a href="Customers"><li>مشاركة زبائننا</li></a>
+                        <a href="Contact"><li>تواصل معنا</li></a>
                     </ul>
     
                     <div className='user'>
