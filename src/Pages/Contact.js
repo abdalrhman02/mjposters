@@ -27,7 +27,7 @@ function Home() {
         };
 
         emailjs.send(
-            'service_yqzbvoi', 'template_5l32m2g', templateParams,
+            'service_yqzbvoi', 'template_5l32m2g', templateParams , 'VbqH9pjNBo8llwQFr'
         ).then((response) => {
             console.log('تم ارسال الرسالة!');
         }).catch((err) => {
