@@ -66,25 +66,25 @@ function Home() {
                     </div>
 
                     <div className='sections'>
-                        <a href="#">
+                        <a href="/Store">
                             <div className='section'>
                                 <h4>رياضة</h4>
                             </div>
                         </a>
 
-                        <a href="#">
+                        <a href="/Store">
                             <div className='section'>
                                 <h4>سيارات</h4>
                             </div>
                         </a>
 
-                        <a href="#">
+                        <a href="/Store">
                             <div className='section'>
                                 <h4>انمي</h4>
                             </div>
                         </a>
 
-                        <a href="#">
+                        <a href="/Store">
                             <div className='section'>
                                 <h4>العاب</h4>
                             </div>
@@ -109,7 +109,7 @@ function Home() {
 
                             <h5 className='price'>السعر: <span>130₪</span></h5>
                                 
-                            <a href="#"><button className='btn'>تصفح البوسترات</button></a>
+                            <a href="/Store"><button className='btn'>تصفح البوسترات</button></a>
                         </div>
 
                         <div className='images'>
@@ -135,7 +135,7 @@ function Home() {
 
                             <h5 className='price'>السعر: <span>200₪</span></h5>
                                 
-                            <a href="#"><button className='btn'>تصفح البوسترات</button></a>
+                            <a href="/Store"><button className='btn'>تصفح البوسترات</button></a>
                         </div>
                     </div>
 
@@ -147,7 +147,7 @@ function Home() {
 
                             <h5 className='price'>السعر: <span>250₪</span></h5>
                                 
-                            <a href="#"><button className='btn'>تصفح البوسترات</button></a>
+                            <a href="/Store"><button className='btn'>تصفح البوسترات</button></a>
                         </div>
 
                         <div className='images'>
