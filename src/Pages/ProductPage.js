@@ -75,10 +75,10 @@ function ProductPage() {
         prType={product.type}
         prDescription={product.description}
         prImg={product.imageUrl}
-        productId={product.id} // Ensure productId is passed
+        productId={product.id}
         addToFavorites={addToFavorites}
         removeFromFavorites={removeFromFavorites}
-        isFavorite={favoritePosters.some((p) => p.id === product.id)}
+        isFavorite={favoritePosters.some((fav) => fav.id === product.id)}
       />
 
       <div className="more-posters">

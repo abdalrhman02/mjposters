@@ -1,5 +1,5 @@
 .contact {
-    background: linear-gradient(180deg, var(--purple),  var(--black));
+
     .contact-intro {
         position: relative;
         padding: 0 120px;
@@ -43,6 +43,7 @@
     }
 
     .form {
+        background: linear-gradient(180deg, var(--dark-purple), var(--black));
         padding: 65px 0;
         display: flex;
         flex-direction: column;

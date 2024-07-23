@@ -15,24 +15,6 @@ export function AuthProvider({ children }) {
     const [userRole, setUserRole] = useState(null);
     const [loading, setLoading] = useState(true);
 
-        // useEffect(() => {
-    //   const unsubscribe = onAuthStateChanged(auth, async (user) => {
-    //     if (user) {
-    //       const userDoc = await getDoc(doc(db, 'users', user.uid));
-    //       if (userDoc.exists()) {
-    //         setCurrentUser(user);
-    //         setUserRole(userDoc.data().role);
-    //       }
-    //     } else {
-    //       setCurrentUser(null);
-    //       setUserRole(null);
-    //     }
-    //     setLoading(false);
-    //   });
-  
-    //   return unsubscribe;
-    // }, []);
-
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -57,7 +39,7 @@ export function AuthProvider({ children }) {
 
     const value = {
         currentUser,
-        userRole, // Make sure to include userRole in the context value
+        userRole,
         logout
     };
 

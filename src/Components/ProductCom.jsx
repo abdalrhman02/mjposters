@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useCart } from '../Components/CartContext';
 import { useAuth } from '../Components/AuthContext';
+import { doc, setDoc, deleteDoc, getDoc } from 'firebase/firestore';
+import { db } from '../firebaseconfig';
 
 function ProductCom({
   prName,
@@ -9,15 +11,25 @@ function ProductCom({
   prDescription,
   prImg,
   productId,
-  addToFavorites,
-  removeFromFavorites,
-  isFavorite,
 }) {
   const { currentUser } = useAuth();
   const { addToCart } = useCart();
-  const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
+  const [isFavoriteState, setIsFavoriteState] = useState(false);
   const errorNoti = useRef();
   const successNoti = useRef();
+
+  useEffect(() => {
+    const fetchFavoriteStatus = async () => {
+      if (currentUser) {
+        const userRef = doc(db, 'users', currentUser.uid);
+        const favoriteRef = doc(userRef, 'favorites', productId);
+        const favoriteSnap = await getDoc(favoriteRef);
+        setIsFavoriteState(favoriteSnap.exists());
+      }
+    };
+
+    fetchFavoriteStatus();
+  }, [currentUser, productId]);
 
   const handleAddToCart = () => {
     if (currentUser) {
@@ -31,57 +43,62 @@ function ProductCom({
         quantity: 1,
       };
       addToCart(product);
-      
-        successNoti.current.classList.add('disFlex');
-        successNoti.current.classList.remove('disNone');
-        setTimeout(() => {
-          successNoti.current.classList.remove('disFlex');
-          successNoti.current.classList.add('disNone');
-        }, 3000)
+      successNoti.current.classList.add('disFlex');
+      successNoti.current.classList.remove('disNone');
+      setTimeout(() => {
+        successNoti.current.classList.remove('disFlex');
+        successNoti.current.classList.add('disNone');
+      }, 3000);
     } else {
       errorNoti.current.classList.add('disFlex');
       errorNoti.current.classList.remove('disNone');
       setTimeout(() => {
         errorNoti.current.classList.remove('disFlex');
         errorNoti.current.classList.add('disNone');
-      }, 3000)
+      }, 3000);
     }
   };
 
-  // const handleToggleFavorite = () => {
-  //   if (currentUser) {
-  //     if (isFavoriteState) {
-  //       removeFromFavorites(productId);
-  //     } else {
-  //       addToFavorites({
-  //         id: productId,
-  //         name: prName,
-  //         price: prPrice,
-  //         type: prType,
-  //         description: prDescription,
-  //         imageUrl: prImg,
-  //       });
-  //     }
-  //     setIsFavoriteState(!isFavoriteState); 
-  //   } else {
-  //     alert('يرجى تسجيل الدخول لإضافة المنتج إلى المفضلة.');
-  //   }
-  // };
+  const handleToggleFavorite = async () => {
+    if (currentUser) {
+      const userRef = doc(db, 'users', currentUser.uid);
+      const favoriteRef = doc(userRef, 'favorites', productId);
+
+      try {
+        if (isFavoriteState) {
+          await deleteDoc(favoriteRef);
+          setIsFavoriteState(false);
+        } else {
+          await setDoc(favoriteRef, {
+            id: productId,
+            name: prName,
+            price: prPrice,
+            type: prType,
+            description: prDescription,
+            imageUrl: prImg,
+          });
+          setIsFavoriteState(true);
+        }
+      } catch (error) {
+        console.error('Error updating Firestore favorites:', error);
+      }
+    } else {
+      alert('يرجى تسجيل الدخول لإضافة المنتج إلى المفضلة.');
+    }
+  };
 
   return (
     <div className="productPage">
-        
-      <div className='addProduct-Noti'>
+      <div className='noti'>
         <div className="success disNone" ref={successNoti}>
-          <img src={require('../Images/Icons/success.png')} />
+          <img src={require('../Images/Icons/success.png')} alt="Success" />
           <h3>تمت اضافة البوستر الى سلة الشراء</h3>
         </div>
 
         <div className="error disNone" ref={errorNoti}>
-          <img src={require('../Images/Icons/error.png')} />
+          <img src={require('../Images/Icons/error.png')} alt="Error" />
           <h3>يرجى تسجيل الدخول اولا</h3>
         </div>
-
       </div>
 
       <div className="container">
@@ -102,10 +119,10 @@ function ProductCom({
                 اضف للسلة
               </button>
 
-              {/* <i
+              <i
                 className={isFavoriteState ? "fa-solid fa-heart" : "fa-regular fa-heart"}
                 onClick={handleToggleFavorite}
-              ></i> */}
+              ></i>
             </div>
 
             <p className="description">{prDescription}</p>

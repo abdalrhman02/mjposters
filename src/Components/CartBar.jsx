@@ -119,7 +119,7 @@ function CartBar() {
               </div>
 
               <div className='coupon'>
-                <label htmlFor="coupon">كود الخصم</label>
+                <label htmlFor="coupon">كود الخصم:</label>
                 <input 
                   type="text" 
                   id="coupon" 
@@ -129,7 +129,7 @@ function CartBar() {
               </div>
 
               <div className='totalPrice'>
-                <p>السعر الاصلي: <b>{totalPrice}₪</b></p>
+                <p>السعر الاصلي(شامل التوصيل): <b>{totalPrice}₪</b></p>
                 <p className="note" style={{fontSize:"14px", marginTop:"5px"}}>لن يظهر السعر بعد الخصم ان كان كود الخصم خاطئ او منتهي!</p>
                 {discount > 0 && (
                   <>
@@ -137,6 +137,8 @@ function CartBar() {
                   </>
                 )}
               </div>
+
+                <hr></hr>
 
               <div className='the-form'>
                 <div className="text">

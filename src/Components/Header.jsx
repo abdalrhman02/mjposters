@@ -36,19 +36,19 @@ function Header() {
    
                <div className="links-user">
                    <ul className='links'>
-                       <a href="Store" className='btn'><li>جميع الاقسام</li></a>
-                       <a href="About"><li>من نحن</li></a>
-                       <a href="Customers"><li>مشاركة زبائننا</li></a>
-                       <a href="Contact"><li>تواصل معنا</li></a>
+                       <a href="/Store" className='btn'><li>جميع الاقسام</li></a>
+                       <a href="/About"><li>من نحن</li></a>
+                       <a href="/Customers"><li>مشاركة زبائننا</li></a>
+                       <a href="/Contact"><li>تواصل معنا</li></a>
                    </ul>
    
                    <div className='user'>
-                       <a href="Cart" className='cart'>
+                       <a href="/Cart" className='cart'>
                            <img src={require("../Images/Icons/cart-icon.png")} />
                        </a>
    
                        <div className="profile">
-                           <a href="ProfilePage"><img src={require('../Images/Icons/user-icon.png')} /></a>
+                           <a href="/ProfilePage"><img src={require('../Images/Icons/user-icon.png')} /></a>
                        </div>
                    </div>
                </div>
@@ -63,19 +63,21 @@ function Header() {
 
                     <div className="links-user">
                     <ul className='links'>
-                        <a href="Store" className='btn'><li>جميع الاقسام</li></a>
-                        <a href="About"><li>من نحن</li></a>
-                        <a href="Customers"><li>مشاركة زبائننا</li></a>
-                        <a href="Contact"><li>تواصل معنا</li></a>
+                        <a href="/Store" className='btn'><li>جميع الاقسام</li></a>
+                        <a href="/About"><li>من نحن</li></a>
+                        <a href="/Customers"><li>مشاركة زبائننا</li></a>
+                        <a href="/Contact"><li>تواصل معنا</li></a>
                     </ul>
     
                     <div className='user'>
-                        <a href="Cart" className='cart'>
+                        <a href="/Cart" className='cart'>
                             <img src={require("../Images/Icons/cart-icon.png")} />
                         </a>
     
                         <div className="profile">
-                            <a href="ProfilePage"><img src={require('../Images/Icons/user-icon.png')} /></a>
+                            <a href="/ProfilePage">
+                                <img src={require('../Images/Icons/user-icon.png')} />
+                            </a>
                         </div>
                     </div>
                 </div>

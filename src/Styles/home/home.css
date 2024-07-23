@@ -195,7 +195,7 @@
   align-items: center;
 }
 .home .posters-types .types .type .images img {
-  width: 210px;
+  width: 220px;
   border: 4px solid black;
   position: relative;
 }
@@ -213,7 +213,7 @@
   position: relative;
   background-color: var(--black);
   width: 12em;
-  height: 19em;
+  height: 20em;
   margin: 0 -80px;
   z-index: 3;
 }
@@ -370,7 +370,10 @@
     font-size: 45px;
   }
   .home .posters-types .types .type .images img {
-    width: 150px;
+    width: 160px;
+  }
+  .home .posters-types .types .type .text {
+    padding: 0 20px;
   }
   .home .posters-types .types .type .text h3 {
     font-size: 1.8em;
@@ -379,7 +382,10 @@
     font-size: 17px;
   }
   .home .posters-types .types .type .images .empty-poster {
-    height: 18em;
-    width: 11em;
+    height: 16em;
+    width: 10em;
+  }
+  .home .posters-types .types .type .images .empty-poster h4 {
+    font-size: 26px;
   }
 }/*# sourceMappingURL=home.css.map */

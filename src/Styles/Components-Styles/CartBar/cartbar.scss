@@ -91,6 +91,19 @@
             }
         }
 
+        .coupon {
+            margin-top: 15px;
+
+            label {
+                margin-left: 5px
+            }
+
+            input {
+                height: 1.7em;
+                padding-right: 7px;
+            }
+        }
+
         .totalPrice {
             margin: 25px 0;
             p {

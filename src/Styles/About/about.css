@@ -28,7 +28,7 @@
 }
 .about .intro .content h3 {
   position: relative;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   width: -moz-fit-content;
   width: fit-content;
@@ -45,13 +45,14 @@
   height: 6px;
 }
 .about .intro .content h1 {
-  font-size: 80px;
+  font-size: 70px;
   font-weight: 900;
   width: -moz-fit-content;
   width: fit-content;
 }
 .about .intro .content img {
-  width: 18em;
+  width: 16em;
+  margin-top: 20px;
 }
 .about .container {
   padding: 4em 0;
@@ -89,6 +90,9 @@
   line-height: 1.7em;
   font-size: 17px;
   margin-top: 15px;
+}
+.about .container .question img {
+  width: 20em;
 }
 
 @media (max-width: 1200px) {

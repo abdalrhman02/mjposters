@@ -66,6 +66,16 @@
 .cartbar .cart-list .area select {
   font-size: 18px;
 }
+.cartbar .cart-list .coupon {
+  margin-top: 15px;
+}
+.cartbar .cart-list .coupon label {
+  margin-left: 5px;
+}
+.cartbar .cart-list .coupon input {
+  height: 1.7em;
+  padding-right: 7px;
+}
 .cartbar .cart-list .totalPrice {
   margin: 25px 0;
 }

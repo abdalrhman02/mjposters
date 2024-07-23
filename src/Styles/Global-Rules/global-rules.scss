@@ -11,7 +11,7 @@
 } 
 
 // Elements
-a{text-decoration:none};
+a{text-decoration:none; color: #000;};
 ul{list-style: none};
 .container{margin: 0 140px};
 .btn {
@@ -169,6 +169,7 @@ header {
                     text-align: center;
                 }
             }
+
         }
 
         .user {

@@ -32,7 +32,7 @@
 
             h3 {
                 position: relative;
-                font-size: 50px;
+                font-size: 40px;
                 font-weight: 600;
                 width: fit-content;
                 margin-bottom: 25px;
@@ -50,13 +50,14 @@
             }
 
             h1 {
-                font-size: 80px;
+                font-size: 70px;
                 font-weight: 900;
                 width: fit-content;
             }
 
             img {
-                width: 18em
+                width: 16em;
+                margin-top: 20px;
             }
         }
     }
@@ -103,6 +104,10 @@
                 line-height: 1.7em;
                 font-size: 17px;
                 margin-top: 15px
+            }
+
+            img {
+                width: 20em;
             }
         }
     }

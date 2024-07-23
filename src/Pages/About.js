@@ -13,7 +13,7 @@ function About() {
                 <div className='content'>
                     <h3>من نحن</h3>
                     <h1>تعرف على متجر</h1>
-                    <img src={require('../Images/Logo/logo1.png')} />
+                    <img src={require('../Images/Logo/white-logo.png')} />
                 </div>
             </div>
 
@@ -39,6 +39,13 @@ function About() {
                         <h3>طريقة الدفع و التوصيل ؟</h3>
                     </div>
                     <p>يتم التوصيل لجميع المناطق في الداخل و الضفة و القدس و نوفر لكم العديد من طرق الدفع كتحويل بنكية و الدفع عند الاستلام </p>
+                </div>
+
+                <div className='question'>
+                    <div className='title yellow'>
+                        <h3>مقاس البوستير</h3>
+                    </div>
+                    <img src={require('../Images/PDimen.png')} />
                 </div>
             </div>
         
