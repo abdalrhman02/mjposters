@@ -30,7 +30,7 @@
             background-color: rgba(255, 255, 255, 0.8784313725);
             border-radius: 10px;
             width: 40em;
-            height: 33em;
+            height: 36em;
 
             .form-title {
 
@@ -80,6 +80,15 @@
                         border: 2px solid #000;
                         border-radius: 5px;
                         outline: none;
+                    }
+
+                    .password-error {
+                        display: none;
+                        text-align: right;
+                        max-width: 300px;
+                        margin-top: 5px;
+                        line-height: 1.3em;
+                        color: rgb(192, 3, 3)
                     }
                 }
 

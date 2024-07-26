@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Components
 import Header from '../Components/Header';
@@ -11,7 +11,6 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth'; // For User Information
 
 function Signup() {
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -24,6 +23,8 @@ function Signup() {
     const [usernameValid, setUsernameValid] = useState(false);
     const [passwordValid, setPasswordValid] = useState(false);
     const [emailValid, setEmailValid] = useState(false);
+
+    const passError = useRef();
 
     const handleSignup = async (e) => {
         e.preventDefault();
@@ -38,9 +39,11 @@ function Signup() {
         
         if (password.length < 10){
             passwordInpRef.current.style.border = '2px solid red';
+            passError.current.style.display = 'block';
             return;
         } else {
-            passwordInpRef.current.style.border = '1px solid #333333'
+            passwordInpRef.current.style.border = '1px solid #333333';
+            passError.current.style.display = 'none';
             setPasswordValid(true)
         }
 
@@ -52,7 +55,6 @@ function Signup() {
             emailInpRef.current.style.border = '1px solid #333333'
             setEmailValid(true)
         }    
-        
         
         if (usernameValid && passwordValid && emailValid) {
             console.log('DONE!')
@@ -80,7 +82,6 @@ function Signup() {
             console.log("There is Error!")
         }
     };
-
 
     const [user] = useAuthState(auth); // For User Information
 
@@ -110,6 +111,7 @@ function Signup() {
                         <div>
                             <label htmlFor='password'>كلمة المرور: </label>
                             <input type='password' id='password' ref={passwordInpRef} onChange={(e) => setPassword(e.target.value)} required />
+                            <p className="password-error" ref={passError} style={{display: 'none'}}>كلمة المرور يجب ان تحتوي على اكثر من 10 احرف او ارقام</p>
                         </div>
 
                         <input className='btn' type='submit' value='سجل دخولك' />

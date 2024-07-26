@@ -26,7 +26,7 @@
   background-color: rgba(255, 255, 255, 0.8784313725);
   border-radius: 10px;
   width: 40em;
-  height: 33em;
+  height: 36em;
 }
 .signup-page .container .form .form-title h1 {
   position: relative;
@@ -69,6 +69,14 @@
   border: 2px solid #000;
   border-radius: 5px;
   outline: none;
+}
+.signup-page .container .form form div .password-error {
+  display: none;
+  text-align: right;
+  max-width: 300px;
+  margin-top: 5px;
+  line-height: 1.3em;
+  color: rgb(192, 3, 3);
 }
 .signup-page .container .form form .error {
   color: red;
