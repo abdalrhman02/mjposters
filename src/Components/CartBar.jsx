@@ -31,7 +31,8 @@ function CartBar() {
           <hr />
         </div>
       `).join(''),
-      total_price: totalPrice 
+      total_price: totalPrice,
+      dis_price: discountedPrice 
     };
 
     emailjs.send('service_4ecmwl9', 'template_ysxvoal', templateParams, 'VbqH9pjNBo8llwQFr')
@@ -42,6 +43,7 @@ function CartBar() {
         setTimeout(() => {
           successNoti.current.classList.remove('disFlex');
           successNoti.current.classList.add('disNone');
+          window.location.reload()
         }, 3000)
       })
       .catch((error) => {
@@ -84,6 +86,18 @@ function CartBar() {
             </div>
           ) : (
             <div className='cart-list' ref={cartList}>
+                <div className='cart-noti'>
+                  <div className="success disNone" ref={successNoti}>
+                    <img src={require('../Images/Icons/success.png')} alt="Success" />
+                    <h3>تم ارسال طلبيتك بنجاح!</h3>
+                  </div>
+
+                  <div className="error disNone" ref={errorNoti}>
+                    <img src={require('../Images/Icons/error.png')} alt="Error" />
+                    <h3>حدث خطأ ما , يرجى اعادة المحاولة</h3>
+                  </div>
+                </div>
+
               {cartItems.map((product) => (
                 <div key={product.id}>
                   <div className='product-details'>

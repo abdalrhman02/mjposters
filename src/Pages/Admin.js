@@ -90,7 +90,7 @@ function AdminPage() {
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Clear previous state
+      // Clear previous img
       setNewPrImage(null);
       imgView.current.style.backgroundImage = '';
   
@@ -98,9 +98,7 @@ function AdminPage() {
       setNewPrImage(file);
       const imgLink = URL.createObjectURL(file);
       imgView.current.style.backgroundImage = `url(${imgLink})`;
-  
-      // Log the selected file for debugging
-      console.log("Selected file:", file);
+
     }
   };
 
@@ -116,7 +114,7 @@ function AdminPage() {
   let inputFile = useRef(null);
 
   if (!currentUser || userRole !== 'Admin') {
-    return null; // Prevents the page from rendering if not authorized
+    return null;
   }
 
   return (

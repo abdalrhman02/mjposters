@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
 
 // Components
@@ -17,6 +17,8 @@ function Home() {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     };
 
+    const errorNoti = useRef();
+    const successNoti = useRef();
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -29,9 +31,20 @@ function Home() {
         emailjs.send(
             'service_yqzbvoi', 'template_5l32m2g', templateParams , 'VbqH9pjNBo8llwQFr'
         ).then((response) => {
-            console.log('تم ارسال الرسالة!');
+            successNoti.current.classList.add('disFlex');
+            successNoti.current.classList.remove('disNone');
+            setTimeout(() => {
+            successNoti.current.classList.remove('disFlex');
+            successNoti.current.classList.add('disNone');
+            window.location.reload()
+            }, 3000)
         }).catch((err) => {
-            console.error('حدث خطأ...', err);
+            errorNoti.current.classList.add('disFlex');
+            errorNoti.current.classList.remove('disNone');
+            setTimeout(() => {
+                errorNoti.current.classList.remove('disFlex');
+                errorNoti.current.classList.add('disNone');
+            }, 3000)
         });
     };
 
@@ -40,6 +53,18 @@ function Home() {
             <Header />
 
             <div className='contact'>
+                <div className='noti'>
+                    <div className="success disNone" ref={successNoti}>
+                        <img src={require('../Images/Icons/success.png')} alt="Success" />
+                        <h3>تم الارسال, سنعاود الاتصال بك باسرع وقت ممكن</h3>
+                    </div>
+
+                    <div className="error disNone" ref={errorNoti}>
+                        <img src={require('../Images/Icons/error.png')} alt="Error" />
+                        <h3>حدث خطأ ما , عليك تعبئة جميع البيانات   </h3>
+                    </div>
+                </div>
+      
                 <div className='contact-intro'>
                     <div className='title'>
                         <div>
