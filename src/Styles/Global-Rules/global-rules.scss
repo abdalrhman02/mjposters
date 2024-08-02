@@ -10,6 +10,11 @@
     --black: #1E1E1E
 } 
 
+// Classes
+.disNone{display:none};
+.disBlock{display:block};
+.disFlex{display:flex};
+
 // Elements
 a{text-decoration:none; color: #000;};
 ul{list-style: none};
@@ -84,12 +89,6 @@ ul{list-style: none};
     }
 }
 
-
-// Classes
-.disNone{display:none};
-.disBlock{display:block};
-.disFlex{display:flex};
-
 // Any where I want to add some posters
 .posters {
     display: flex;
@@ -114,7 +113,7 @@ ul{list-style: none};
     }
 }
 
-// Footer and Header
+// Header and Footer
 header {
     padding: 15px 50px;
 
@@ -264,7 +263,3 @@ footer {
         margin: 30px 0 40px;
     }
 }
-//Header Responsive
-// @media (max-width: ) {
-
-// }

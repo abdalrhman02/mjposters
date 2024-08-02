@@ -12,6 +12,18 @@
   --black: #1E1E1E ;
 }
 
+.disNone {
+  display: none;
+}
+
+.disBlock {
+  display: block;
+}
+
+.disFlex {
+  display: flex;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -85,18 +97,6 @@ ul {
 }
 .noti .error {
   background-color: rgba(147, 35, 35, 0.631372549);
-}
-
-.disNone {
-  display: none;
-}
-
-.disBlock {
-  display: block;
-}
-
-.disFlex {
-  display: flex;
 }
 
 .posters {

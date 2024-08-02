@@ -1,4 +1,4 @@
-.signup-page .container {
+.signup-page .container, .login-page .container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -7,16 +7,16 @@
   position: relative;
   background: url("../../Images/loginBG.png");
 }
-.signup-page .container .background {
+.signup-page .container .background, .login-page .container .background {
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
 }
-.signup-page .container .background img {
+.signup-page .container .background img, .login-page .container .background img {
   width: 160px;
 }
-.signup-page .container .form {
+.signup-page .container .form, .login-page .container .form {
   color: #000;
   display: flex;
   flex-direction: column;
@@ -28,11 +28,11 @@
   width: 40em;
   height: 36em;
 }
-.signup-page .container .form .form-title h1 {
+.signup-page .container .form .form-title h1, .login-page .container .form .form-title h1 {
   position: relative;
   font-size: 38px;
 }
-.signup-page .container .form .form-title h1::after {
+.signup-page .container .form .form-title h1::after, .login-page .container .form .form-title h1::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -42,26 +42,26 @@
   width: 40%;
   height: 4px;
 }
-.signup-page .container .form .form-title p {
+.signup-page .container .form .form-title p, .login-page .container .form .form-title p {
   max-width: 350px;
   margin: 20px 0;
   font-size: 18px;
   line-height: 1.4em;
 }
-.signup-page .container .form form {
+.signup-page .container .form form, .login-page .container .form form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.signup-page .container .form form div {
+.signup-page .container .form form div, .login-page .container .form form div {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
-.signup-page .container .form form div label {
+.signup-page .container .form form div label, .login-page .container .form form div label {
   margin-bottom: 8px;
 }
-.signup-page .container .form form div input {
+.signup-page .container .form form div input, .login-page .container .form form div input {
   width: 21em;
   height: 2.8em;
   font-size: 15px;
@@ -70,28 +70,58 @@
   border-radius: 5px;
   outline: none;
 }
-.signup-page .container .form form div .password-error {
-  display: none;
+.signup-page .container .form form div .email-error,
+.signup-page .container .form form div .password-error,
+.signup-page .container .form form div .forgot-password, .login-page .container .form form div .email-error,
+.login-page .container .form form div .password-error,
+.login-page .container .form form div .forgot-password {
   text-align: right;
   max-width: 300px;
   margin-top: 5px;
   line-height: 1.3em;
   color: rgb(192, 3, 3);
 }
-.signup-page .container .form form .error {
+.signup-page .container .form form div .forgot-password, .login-page .container .form form div .forgot-password {
+  color: rgb(35, 70, 226);
+  text-decoration: underline;
+}
+.signup-page .container .form form .error, .login-page .container .form form .error {
   color: red;
   margin-bottom: 14px;
   display: none;
 }
-.signup-page .container .form .no-account {
+.signup-page .container .form .account-done, .login-page .container .form .account-done {
+  text-align: right;
+  font-size: 18px;
+  max-width: 300px;
+  margin-bottom: 10px;
+  color: rgb(41, 170, 24);
+}
+.signup-page .container .form .no-account, .login-page .container .form .no-account {
   margin-top: 15px;
 }
-.signup-page .container .form .no-account a {
+.signup-page .container .form .no-account a, .login-page .container .form .no-account a {
   color: var(--yellow);
   text-decoration: underline;
   font-weight: 600;
 }
-.signup-page .container .images img {
+.signup-page .container #forgot-password-form, .login-page .container #forgot-password-form {
+  background-color: #FFF;
+  width: 22em;
+  position: absolute;
+  top: 2em;
+  right: 0;
+  padding: 10px 1.5em;
+  border-radius: 10px 0 0 10px;
+}
+.signup-page .container #forgot-password-form form div, .login-page .container #forgot-password-form form div {
+  margin: 10px 0 10px;
+}
+.signup-page .container #forgot-password-form form [type=submit], .login-page .container #forgot-password-form form [type=submit] {
+  font-size: 15px;
+  width: 5em;
+}
+.signup-page .container .images img, .login-page .container .images img {
   width: 220px;
 }
 
