@@ -32,31 +32,48 @@ function ProductCom({
   }, [currentUser, productId]);
 
   const handleAddToCart = () => {
-    if (currentUser) {
-      const product = {
-        id: productId,
-        name: prName,
-        price: prPrice,
-        type: prType,
-        description: prDescription,
-        imageUrl: prImg,
-        quantity: 1,
-      };
-      addToCart(product);
+    // if (currentUser) {
+    //   const product = {
+    //     id: productId,
+    //     name: prName,
+    //     price: prPrice,
+    //     type: prType,
+    //     description: prDescription,
+    //     imageUrl: prImg,
+    //     quantity: 1,
+    //   };
+    //   addToCart(product);
+    //   successNoti.current.classList.add('disFlex');
+    //   successNoti.current.classList.remove('disNone');
+    //   setTimeout(() => {
+    //     successNoti.current.classList.remove('disFlex');
+    //     successNoti.current.classList.add('disNone');
+    //   }, 3000);
+    // } else {
+    //   errorNoti.current.classList.add('disFlex');
+    //   errorNoti.current.classList.remove('disNone');
+    //   setTimeout(() => {
+    //     errorNoti.current.classList.remove('disFlex');
+    //     errorNoti.current.classList.add('disNone');
+    //   }, 3000);
+    // }
+
+    const product = {
+      id: productId,
+      name: prName,
+      price: prPrice,
+      type: prType,
+      description: prDescription,
+      imageUrl: prImg,
+      quantity: 1,
+    };
+    addToCart(product);
       successNoti.current.classList.add('disFlex');
       successNoti.current.classList.remove('disNone');
       setTimeout(() => {
         successNoti.current.classList.remove('disFlex');
         successNoti.current.classList.add('disNone');
       }, 3000);
-    } else {
-      errorNoti.current.classList.add('disFlex');
-      errorNoti.current.classList.remove('disNone');
-      setTimeout(() => {
-        errorNoti.current.classList.remove('disFlex');
-        errorNoti.current.classList.add('disNone');
-      }, 3000);
-    }
   };
 
   const handleToggleFavorite = async () => {

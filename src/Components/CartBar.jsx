@@ -4,7 +4,7 @@ import emailjs from 'emailjs-com';
 import { useAuth } from '../Components/AuthContext';
 
 function CartBar() {
-  const { currentUser } = useAuth(); // Check if user is logged in
+  // const { currentUser } = useAuth(); // Check if user is logged in
 
   const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = useCart();
   const [name, setName] = useState('');
@@ -75,9 +75,141 @@ function CartBar() {
   let cartList = useRef();
   
   return (
-    <div className='cartbar'>
-      {currentUser ? (
-        <>
+    // <div className='cartbar'>
+    //   {currentUser ? (
+    //     <>
+    //       <h1>سلة التسوق</h1>
+    //       <p>عدد المنتجات في السلة: {cartItems.length}</p>
+    //       {cartItems.length === 0 ? (
+    //         <div className='empty-cart'>
+    //           <p>Your cart is empty.</p>
+    //         </div>
+    //       ) : (
+    //         <div className='cart-list' ref={cartList}>
+    //             <div className='cart-noti'>
+    //               <div className="success disNone" ref={successNoti}>
+    //                 <img src={require('../Images/Icons/success.png')} alt="Success" />
+    //                 <h3>تم ارسال طلبيتك بنجاح!</h3>
+    //               </div>
+
+    //               <div className="error disNone" ref={errorNoti}>
+    //                 <img src={require('../Images/Icons/error.png')} alt="Error" />
+    //                 <h3>حدث خطأ ما , يرجى اعادة المحاولة</h3>
+    //               </div>
+    //             </div>
+
+    //           {cartItems.map((product) => (
+    //             <div key={product.id}>
+    //               <div className='product-details'>
+    //                 <div className='poster-image'>
+    //                   <i className="fa-solid fa-xmark" onClick={() => removeFromCart(product.id)}></i>
+    //                   <img src={product.imageUrl} alt={product.name} width="100" />
+    //                 </div>
+
+    //                 <div className='product-info'>
+    //                   <h3 className='product-name'>{product.name}</h3>
+    //                   <p className='product-price'>السعر: ₪{product.price}</p>
+
+    //                   <div className='quantity'>
+    //                     <button className='quantity-btn btn' onClick={() => increaseQuantity(product.id)}>+</button>
+    //                     <p>{product.quantity}</p>
+    //                     <button className='quantity-btn btn' onClick={() => decreaseQuantity(product.id)}>-</button>
+    //                   </div>
+    //                 </div>
+    //               </div>
+    //               <hr />
+    //             </div>
+    //           ))}
+
+    //           <div className='area'>
+    //             <p>اختر منطقتك</p>
+    //             <select onChange={handleAreaChange}>
+    //               <option value="40">الشمال</option>
+    //               <option value="40">المثلث</option>
+    //               <option value="50">القدس</option>
+    //               <option value="50">الجنوب</option>
+    //               <option value="70">الضفة</option>
+    //             </select>
+    //           </div>
+
+    //           <div className='coupon'>
+    //             <label htmlFor="coupon">كود الخصم:</label>
+    //             <input 
+    //               type="text" 
+    //               id="coupon" 
+    //               value={coupon} 
+    //               onChange={(e) => setCoupon(e.target.value)} 
+    //             />
+    //           </div>
+
+    //           <div className='totalPrice'>
+    //             <p>السعر الاصلي(شامل التوصيل): <b>{totalPrice}₪</b></p>
+    //             <p className="note" style={{fontSize:"14px", marginTop:"5px"}}>لن يظهر السعر بعد الخصم ان كان كود الخصم خاطئ او منتهي!</p>
+    //             {discount > 0 && (
+    //               <>
+    //                 <p>السعر بعد الخصم: <b>{Math.floor(discountedPrice)}₪</b></p>
+    //               </>
+    //             )}
+    //           </div>
+
+    //             <hr></hr>
+
+    //           <div className='the-form'>
+    //             <div className="text">
+    //               <h2>ادخل معلوماتك هنا</h2>
+    //               <p>تأكد من ادخال المعلومات بشكل صحيح لنوصل اليك طلبك بشكل صحيح و في اسرع وقت ممكن</p>
+    //             </div>
+
+    //             <form onSubmit={handleSubmit}>
+    //               <div>
+    //                 <label htmlFor="name">اسمك الشخصي</label>
+    //                 <input type="text" id="name" value={name}
+    //                   onChange={(e) => setName(e.target.value)} required
+    //                 />
+    //               </div>
+
+    //               <div>
+    //                 <label htmlFor="phone">رقم هاتفك</label>
+    //                 <input type="number" id="phone" value={phone}
+    //                   onChange={(e) => setPhone(e.target.value)} required
+    //                 />
+    //               </div>
+
+    //               <div>
+    //                 <label htmlFor="address">البلد</label>
+    //                 <input type="text" id="address" value={address}
+    //                   onChange={(e) => setAddress(e.target.value)} required />
+    //               </div>
+
+    //               <button type="submit" className='btn'>ارسال طلبيتك</button>
+    //             </form>
+    //           </div>
+    //         </div>
+    //       )}
+    //     </>
+    //   ) : (
+    //     <>
+    //       <div className='loginCart'>
+    //         <div className="container">
+    //           <h1>سجل دخولك الان و احصل على البوستر الخاص بك!</h1>
+
+    //           <div className="btns">  
+    //             <a href="Login">
+    //               <button className='btn'>تسجيل الدخول</button>
+    //             </a>
+
+    //             <a href="Signup">
+    //               <button className='btn'>انشاء حساب جديد</button>
+    //             </a>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </>
+    //   )}
+    // </div>
+
+    <>
+      <div className='cartbar'>
           <h1>سلة التسوق</h1>
           <p>عدد المنتجات في السلة: {cartItems.length}</p>
           {cartItems.length === 0 ? (
@@ -186,27 +318,8 @@ function CartBar() {
               </div>
             </div>
           )}
-        </>
-      ) : (
-        <>
-          <div className='loginCart'>
-            <div className="container">
-              <h1>سجل دخولك الان و احصل على البوستر الخاص بك!</h1>
-
-              <div className="btns">  
-                <a href="Login">
-                  <button className='btn'>تسجيل الدخول</button>
-                </a>
-
-                <a href="Signup">
-                  <button className='btn'>انشاء حساب جديد</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
 

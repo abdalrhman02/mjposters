@@ -4,6 +4,7 @@
   position: relative;
 }
 .productPage .container {
+  margin: 0 180px;
   overflow: hidden;
 }
 .productPage .container .product-info {
