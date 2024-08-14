@@ -29,6 +29,7 @@ function Footer() {
 
             <div className='copyright'> 
                 <p>2024 © MJPOSTERS</p>
+                <p>تطوير و تصميم <a href="https://www.coderkoala.xyz/" target='_blank'>CoderKoala</a></p>
             </div>
         </footer>
     )

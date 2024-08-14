@@ -239,13 +239,22 @@ footer {
     }
 
     .copyright {
-        padding: 6px 50px;
+        padding: 12px 50px;
         background-color: var(--dark-purple);
 
         p {
             color: #FFF;
             text-align: center;
             font-weight: 600;
+            margin-bottom: 5px;
+
+            a {
+                color: var(--yellow);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

@@ -213,13 +213,20 @@ footer .footer-content .logo img {
   width: 70px;
 }
 footer .copyright {
-  padding: 6px 50px;
+  padding: 12px 50px;
   background-color: var(--dark-purple);
 }
 footer .copyright p {
   color: #FFF;
   text-align: center;
   font-weight: 600;
+  margin-bottom: 5px;
+}
+footer .copyright p a {
+  color: var(--yellow);
+}
+footer .copyright p a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
