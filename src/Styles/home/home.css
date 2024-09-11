@@ -344,20 +344,20 @@
 }
 @media (max-width: 600px) {
   .home .intro .text p {
-    font-size: 18px;
+    font-size: 20px;
   }
   .home .intro .text h1 {
-    font-size: 40px;
+    font-size: 44px;
   }
   .home .intro .images {
     margin-left: 0px;
     margin-top: 5em;
   }
   .home .intro .images img {
-    width: 160px;
+    width: 165px;
   }
   .home .intro .images img:nth-child(2) {
-    width: 170px;
+    width: 175px;
   }
   .home .some-sections .container {
     margin: 0 60px;
@@ -387,5 +387,16 @@
   }
   .home .posters-types .types .type .images .empty-poster h4 {
     font-size: 26px;
+  }
+}
+@media (max-width: 420px) {
+  .home .intro .text h1 {
+    font-size: 38px;
+  }
+  .home .intro .images img {
+    width: 145px;
+  }
+  .home .intro .images img:nth-child(2) {
+    width: 155px;
   }
 }/*# sourceMappingURL=home.css.map */
