@@ -11,14 +11,33 @@ function CartBar() {
   const [coupon, setCoupon] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('cash');
   const [cardDetails, setCardDetails] = useState({ number: '', expiry: '', cvv: '' });
-
-  const validCoupon = 'MJSUMMER';
   const errorNoti = useRef();
   const successNoti = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Delivery Area
+  const [selectedArea, setSelectedArea] = useState('40');
+  const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
+  const handleAreaChange = (e) => setSelectedArea(e.target.value);
+  const validCoupon = 'MJSUMMER';
+  const priceWithoutDelivery = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const originalPrice = priceWithoutDelivery + areaPrice;
+  const totalPrice = priceWithoutDelivery + areaPrice;
+  const discount = coupon === validCoupon ? totalPrice * 0.25 : 0;
+  const discountedPrice = originalPrice - discount;
 
+  const handlePaymentMethod = (method) => {
+    setPaymentMethod(method);
+    if (method === 'cash') {
+      completeOrder();
+    }
+  };
+
+  const handlePayPalSuccess = (details) => {
+    console.log('Transaction completed by ', details.payer.name.given_name);
+    completeOrder();
+  };
+
+  const completeOrder = () => {
     const templateParams = {
       user_name: name,
       user_phone: phone,
@@ -56,13 +75,10 @@ function CartBar() {
       });
   };
 
-  const handlePayment = () => {
-    if (paymentMethod === 'paypal') {
-      // PayPal specific code will go here
-      console.log("Handling PayPal payment");
-    } else if (paymentMethod === 'credit') {
-      // Add logic to handle credit card payment
-      console.log("Processing credit card payment", cardDetails);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (paymentMethod === 'cash') {
+      completeOrder();
     }
   };
 
@@ -70,16 +86,6 @@ function CartBar() {
     const { name, value } = e.target;
     setCardDetails(prevDetails => ({ ...prevDetails, [name]: value }));
   };
-
-  const [selectedArea, setSelectedArea] = useState('40');
-  const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
-  const handleAreaChange = (e) => setSelectedArea(e.target.value);
-
-  const priceWithoutDelivery = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  const originalPrice = priceWithoutDelivery + areaPrice;
-  const totalPrice = priceWithoutDelivery + areaPrice;
-  const discount = coupon === validCoupon ? totalPrice * 0.25 : 0;
-  const discountedPrice = originalPrice - discount;
 
   return (
     <div className='cartbar'>
@@ -168,7 +174,7 @@ function CartBar() {
 
               <div>
                 <label>اختر طريقة الدفع</label>
-                <select onChange={(e) => setPaymentMethod(e.target.value)} value={paymentMethod}>
+                <select onChange={(e) => handlePaymentMethod(e.target.value)} value={paymentMethod}>
                   <option value="cash">الدفع عند الاستلام</option>
                   <option value="paypal">باي بال</option>
                   <option value="credit">بطاقة ائتمان</option>
@@ -177,23 +183,38 @@ function CartBar() {
 
               {paymentMethod === 'credit' && (
                 <div>
+                  <label htmlFor="cardName">اسم حامل البطاقة</label>
+                  <input type="text" id="cardName" name="name" onChange={handleCardChange} required />
                   <label htmlFor="cardNumber">رقم البطاقة</label>
-                  <input type="text" id="cardNumber" name="number" onChange={handleCardChange} required />
+                  <input type="text" id="cardNumber" name="number" value={cardDetails.number} onChange={handleCardChange} required />
                   <label htmlFor="expiry">تاريخ الانتهاء</label>
-                  <input type="text" id="expiry" name="expiry" onChange={handleCardChange} required />
+                  <input type="text" id="expiry" name="expiry" value={cardDetails.expiry} onChange={handleCardChange} placeholder="MM/YY" required />
                   <label htmlFor="cvv">رمز الامان (CVV)</label>
-                  <input type="text" id="cvv" name="cvv" onChange={handleCardChange} required />
+                  <input type="text" id="cvv" name="cvv" value={cardDetails.cvv} onChange={handleCardChange} required />
                 </div>
               )}
 
               {paymentMethod === 'paypal' && (
-                <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
-                  <PayPalButtons onApprove={() => handlePayment()} />
+                <PayPalScriptProvider options={{ "client-id": "" }}>
+                  <PayPalButtons
+                    createOrder={(data, actions) => {
+                      return actions.order.create({
+                        purchase_units: [{
+                          amount: {
+                            value: discountedPrice.toFixed(2),
+                          },
+                        }],
+                      });
+                    }}
+                    onApprove={async (data, actions) => {
+                      await actions.order.capture();
+                      handlePayPalSuccess(data);
+                    }}
+                  />
                 </PayPalScriptProvider>
               )}
 
-              <button type="submit" className='btn send'>ارسال</button>
-              <button type="button" onClick={clearCart} className='btn clear'>تفريغ السلة</button>
+              <button type="submit">ارسال</button>
             </form>
           </div>
         </div>

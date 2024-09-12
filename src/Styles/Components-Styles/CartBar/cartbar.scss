@@ -8,7 +8,6 @@
 
     .empty-cart {
         height: 65vh;
-
     }
 
     .cart-list {
@@ -75,7 +74,7 @@
         .area {
             display: flex;
             align-items: center;
-            gap: 1em;
+            gap: 7px;
             margin-top: 25px;
 
             p {
@@ -153,6 +152,10 @@
                         padding-right: 7px;
                         font-size: 16px;
                     }
+                }
+                
+                #paypal-form {
+                    background-color: red;
                 }
             }
         }
