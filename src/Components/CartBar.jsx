@@ -195,7 +195,7 @@ function CartBar() {
               )}
 
               {paymentMethod === 'paypal' && (
-                <PayPalScriptProvider options={{ "client-id": "" }}>
+                <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
                   <PayPalButtons
                     createOrder={(data, actions) => {
                       return actions.order.create({
