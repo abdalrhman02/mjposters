@@ -9,31 +9,21 @@ function CartBar() {
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
   const [coupon, setCoupon] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('cash');
-  const [cardDetails, setCardDetails] = useState({ number: '', expiry: '', cvv: '' });
+  const [paymentMethod, setPaymentMethod] = useState(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [payPalOrderId, setPayPalOrderId] = useState(null);
+
+  const validCoupon = 'MJSUMMER';
   const errorNoti = useRef();
   const successNoti = useRef();
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedArea, setSelectedArea] = useState('40');
-  const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
-  const handleAreaChange = (e) => setSelectedArea(e.target.value);
-  const validCoupon = 'MJSUMMER';
-  const priceWithoutDelivery = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  const originalPrice = priceWithoutDelivery + areaPrice;
-  const totalPrice = priceWithoutDelivery + areaPrice;
-  const discount = coupon === validCoupon ? totalPrice * 0.25 : 0;
-  const discountedPrice = originalPrice - discount;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowPaymentModal(true);
+  };
 
   const handlePaymentMethod = (method) => {
     setPaymentMethod(method);
-    if (method === 'cash') {
-      completeOrder();
-    }
-  };
-
-  const handlePayPalSuccess = (details) => {
-    console.log('Transaction completed by ', details.payer.name.given_name);
-    completeOrder();
   };
 
   const completeOrder = () => {
@@ -74,27 +64,20 @@ function CartBar() {
       });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setModalVisible(true);
+  const handlePayPalSuccess = (details) => {
+    console.log('Transaction completed by ', details.payer.name.given_name);
+    completeOrder();
   };
 
-  const handleCardChange = (e) => {
-    const { name, value } = e.target;
-    setCardDetails(prevDetails => ({ ...prevDetails, [name]: value }));
-  };
+  const [selectedArea, setSelectedArea] = useState('40');
+  const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
+  const handleAreaChange = (e) => setSelectedArea(e.target.value);
 
-  const handleModalClose = () => {
-    setModalVisible(false);
-  };
-
-  const handleModalSubmit = (e) => {
-    e.preventDefault();
-    if (paymentMethod === 'cash') {
-      completeOrder();
-    }
-    setModalVisible(false);
-  };
+  const priceWithoutDelivery = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const originalPrice = priceWithoutDelivery + areaPrice;
+  const totalPrice = priceWithoutDelivery + areaPrice;
+  const discount = coupon === validCoupon ? totalPrice * 0.25 : 0;
+  const discountedPrice = originalPrice - discount;
 
   return (
     <div className='cartbar'>
@@ -168,73 +151,66 @@ function CartBar() {
           <div className='the-form'>
             <h2>ادخل معلوماتك هنا</h2>
             <form onSubmit={handleSubmit}>
-              <div>
+              <div className='inp'>
                 <label htmlFor="name">اسمك الشخصي</label>
                 <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
               </div>
-              <div>
+
+              <div className='inp'>
                 <label htmlFor="phone">رقم هاتفك</label>
                 <input type="number" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
               </div>
-              <div>
+
+              <div className='inp'>
                 <label htmlFor="address">البلد</label>
                 <input type="text" id="address" value={address} onChange={(e) => setAddress(e.target.value)} required />
               </div>
 
-              <div>
-                <label>اختر طريقة الدفع</label>
-                <select onChange={(e) => setPaymentMethod(e.target.value)} value={paymentMethod}>
-                  <option value="cash">الدفع عند الاستلام</option>
-                  <option value="paypal">باي بال</option>
-                  <option value="credit">بطاقة ائتمان</option>
-                </select>
-              </div>
+              {showPaymentModal && (
+                <div className="payment-modal">
+                  <h3>طرق الدفع</h3>
 
-              {paymentMethod === 'credit' && (
-                <div>
-                  <label htmlFor="cardName">اسم حامل البطاقة</label>
-                  <input type="text" id="cardName" name="name" onChange={handleCardChange} required />
-                  <label htmlFor="cardNumber">رقم البطاقة</label>
-                  <input type="text" id="cardNumber" name="number" onChange={handleCardChange} required />
-                  <label htmlFor="cardExpiry">تاريخ انتهاء الصلاحية</label>
-                  <input type="text" id="cardExpiry" name="expiry" onChange={handleCardChange} required />
-                  <label htmlFor="cardCvv">CVV</label>
-                  <input type="text" id="cardCvv" name="cvv" onChange={handleCardChange} required />
+                  <div className='payment-methods'>
+                    <div onClick={() => handlePaymentMethod('cash')}>
+                      <img src={require('../Images/Icons/delivery.png')} />
+                      <p>الدفع عند الاستلام</p>
+                    </div>
+                    <div onClick={() => handlePaymentMethod('paypal')}>
+                      <img src={require('../Images/Icons/paypal.png')} style={{width:'6em'}} />
+                    </div>
+                  </div>
+
+                  {paymentMethod === 'paypal' && (
+                <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
+                  <PayPalButtons
+                    createOrder={(data, actions) => {
+                      return actions.order.create({
+                        purchase_units: [{
+                          amount: {
+                            value: discountedPrice.toFixed(2),
+                          },
+                        }],
+                      });
+                    }}
+                    onApprove={async (data, actions) => {
+                      await actions.order.capture();
+                      handlePayPalSuccess(data);
+                    }}
+                  />
+                </PayPalScriptProvider>
+              )}
+
+                  <button onClick={() => {
+                    setShowPaymentModal(false);
+                    if (paymentMethod === 'cash') {
+                      completeOrder();
+                    }
+                  }} className='btn'>تأكيد الطلب</button>
                 </div>
               )}
 
-              <button type="submit">تأكيد الطلب</button>
+              <button type="submit" className='btn send'>اكمل الطلب</button>
             </form>
-          </div>
-        </div>
-      )}
-
-      {modalVisible && (
-        <div className="modal-overlay" onClick={handleModalClose}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>اختيار طريقة الدفع</h2>
-            {paymentMethod === 'paypal' && (
-              <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
-                <PayPalButtons 
-                  amount={discountedPrice}
-                  onApprove={handlePayPalSuccess}
-                />
-              </PayPalScriptProvider>
-            )}
-            {paymentMethod === 'credit' && (
-              <form onSubmit={handleModalSubmit}>
-                <label htmlFor="cardName">اسم حامل البطاقة</label>
-                <input type="text" id="cardName" name="name" onChange={handleCardChange} required />
-                <label htmlFor="cardNumber">رقم البطاقة</label>
-                <input type="text" id="cardNumber" name="number" onChange={handleCardChange} required />
-                <label htmlFor="cardExpiry">تاريخ انتهاء الصلاحية</label>
-                <input type="text" id="cardExpiry" name="expiry" onChange={handleCardChange} required />
-                <label htmlFor="cardCvv">CVV</label>
-                <input type="text" id="cardCvv" name="cvv" onChange={handleCardChange} required />
-                <button type="submit">إرسال</button>
-              </form>
-            )}
-            <button onClick={handleModalClose}>إغلاق</button>
           </div>
         </div>
       )}
