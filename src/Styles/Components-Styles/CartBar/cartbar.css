@@ -112,9 +112,6 @@
   padding-right: 7px;
   font-size: 16px;
 }
-.cartbar .cart-list .the-form form #paypal-form {
-  background-color: red;
-}
 .cartbar .loginCart {
   height: 65vh;
   position: relative;
