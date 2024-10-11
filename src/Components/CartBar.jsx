@@ -19,7 +19,7 @@ function CartBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowPaymentModal(true);
+    completeOrder();
   };
 
   const handlePaymentMethod = (method) => {
@@ -41,7 +41,7 @@ function CartBar() {
         </div>
       `).join(''),
       total_price: discountedPrice,
-      payment_method: paymentMethod === 'cash' ? 'Cash on Delivery' : paymentMethod,
+      payment_method: paymentMethod === 'cash' ? 'Cash on Delivery' : 'PayPal',
     };
 
     emailjs.send('service_4ecmwl9', 'template_ysxvoal', templateParams, 'VbqH9pjNBo8llwQFr')
@@ -64,10 +64,19 @@ function CartBar() {
       });
   };
 
-  const handlePayPalSuccess = (details) => {
-    console.log('Transaction completed by ', details.payer.name.given_name);
-    completeOrder();
-  };
+  // const handlePayPalSuccess = (details) => {
+  //   console.log('Transaction completed by ', details.payer.name.given_name);
+  //   completeOrder();
+  // };
+  // const handlePayPalError = (error) => {
+  //   console.error('PayPal payment error: ', error);
+  //   errorNoti.current.classList.add('disFlex');
+  //   errorNoti.current.classList.remove('disNone');
+  //   setTimeout(() => {
+  //     errorNoti.current.classList.remove('disFlex');
+  //     errorNoti.current.classList.add('disNone');
+  //   }, 3000);
+  // };
 
   const [selectedArea, setSelectedArea] = useState('40');
   const areaPrice = selectedArea ? parseInt(selectedArea) : 0;
@@ -125,7 +134,7 @@ function CartBar() {
           <div className='area'>
             <p>اختر منطقتك</p>
             <select onChange={handleAreaChange}>
-              <option value="40">الشمال</option>
+              <option value="5">الشمال</option>
               <option value="40">المثلث</option>
               <option value="50">القدس</option>
               <option value="50">الجنوب</option>
@@ -166,7 +175,7 @@ function CartBar() {
                 <input type="text" id="address" value={address} onChange={(e) => setAddress(e.target.value)} required />
               </div>
 
-              {showPaymentModal && (
+              {/* {showPaymentModal && (
                 <div className="payment-modal">
                   <h3>طرق الدفع</h3>
 
@@ -181,35 +190,33 @@ function CartBar() {
                   </div>
 
                   {paymentMethod === 'paypal' && (
-                <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
-                  <PayPalButtons
-                    createOrder={(data, actions) => {
-                      return actions.order.create({
-                        purchase_units: [{
-                          amount: {
-                            value: discountedPrice.toFixed(2),
-                          },
-                        }],
-                      });
-                    }}
-                    onApprove={async (data, actions) => {
-                      await actions.order.capture();
-                      handlePayPalSuccess(data);
-                    }}
-                  />
-                </PayPalScriptProvider>
-              )}
+                    <PayPalScriptProvider options={{ "client-id": "Ab6v--oYzQax1BJYACCiUEOGXvmqHdbRnSTAwN638BJATZEGQen2LDw3u9zS0_YyUNsoWkSTWRlE9CXe" }}>
+                      <PayPalButtons
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            purchase_units: [{
+                              amount: {
+                                value: discountedPrice,
+                              },
+                            }],
+                          });
+                        }}
+                        onApprove={(data, actions) => {
+                          return actions.order.capture().then((details) => {
+                            setPayPalOrderId(data.orderID);
+                            handlePayPalSuccess(details);
+                          });
+                        }}
+                        onError={handlePayPalError}
+                      />
+                    </PayPalScriptProvider>
+                  )}
 
-                  <button onClick={() => {
-                    setShowPaymentModal(false);
-                    if (paymentMethod === 'cash') {
-                      completeOrder();
-                    }
-                  }} className='btn'>تأكيد الطلب</button>
+                  <button className='btn' type="submit">إتمام الطلب</button>
                 </div>
-              )}
+              )} */}
 
-              <button type="submit" className='btn send'>اكمل الطلب</button>
+              <button className='btn' type="submit">اتمام الطلب</button>
             </form>
           </div>
         </div>

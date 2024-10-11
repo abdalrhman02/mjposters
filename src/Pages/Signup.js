@@ -59,7 +59,7 @@ function Signup() {
         }    
         
         if (usernameValid && passwordValid && emailValid) {
-            console.log('DONE!')
+            console.log('Account Createds Successfuly!')
             try {
                 const userCredential = await createUserWithEmailAndPassword(
                     auth,

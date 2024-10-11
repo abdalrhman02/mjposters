@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState, createContext } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
