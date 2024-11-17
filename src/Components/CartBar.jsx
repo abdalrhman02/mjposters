@@ -134,11 +134,11 @@ function CartBar() {
           <div className='area'>
             <p>اختر منطقتك</p>
             <select onChange={handleAreaChange}>
-              <option value="5">الشمال</option>
+              <option value="40">الشمال</option>
               <option value="40">المثلث</option>
-              <option value="50">القدس</option>
-              <option value="50">الجنوب</option>
-              <option value="70">الضفة</option>
+              <option value="60">القدس</option>
+              <option value="60">الجنوب</option>
+              <option value="60">الضفة</option>
             </select>
           </div>
 
